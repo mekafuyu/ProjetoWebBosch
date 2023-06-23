@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Outfit:wght@100;600&family=Reem+Kufi:wght@700&family=Ysabeau:wght@100&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Open Sans', sans-serif; 
+}
+
+hmtl, body{
+    height: 100%;
+    background: rgb(234, 227, 212);
+    transition: 0.3s;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+.bi {
+    font-size: 1.7rem;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-right: 25px;
+}
+
+.bi-sun:hover{
+    color: rgb(224, 157, 0);
+    transition: 0.5s;
+    opacity: 100%;
+}
+
+.bi-moon{
+    display: none;
+}
+
+
+
+/* dakt theme */
+
+.dark, .darkheader {
+    background-color: rgb(32, 32, 46);
+    color: #000000;
+}
+
+.dark .bi-sun{
+    display: none;
+}
+
+.dark .bi-moon{
+    display:block;
+}
+
+.dark .bi-moon:hover{
+    color: rgb(0, 175, 224);
+    transition: 0.5s;
+    opacity: 100%;
+}
+
+.dark .center h1{
+    color: white;
+}
+
+.dark .center h5{
+    color: rgb(255, 242, 215);
+}
+
+.dark .card{
+    background-color: rgb(28, 28, 36);
+}
+
+.dark .card1{
+    background-color: rgb(28, 28, 36);
+}
+
+.dark .box h5{
+    color: white;
+}
+
+.dark #footerContent{
+    background-color: rgb(32, 32, 46);
+}
+
+.dark #footerContacts{
+    color: white;
+}
+
+.dark .footerList li a{
+    color: white;
+}
+
+.dark #footerCopyRight{
+    background-color: rgb(32, 32, 46) ;
+}
+
+.dark #footerCopyRight{
+    color: white;
+}
+
+.dark #footerCopyRight a{
+    color: white;
+}
+
+.dark #footerCopyRight a:hover{
+    color: rgb(84, 184, 255);
+}
+
+.dark .form-label{
+    color: white;
+}
+
+.dark .text-center{
+    color: white;
+}
+
+
+
