@@ -62,11 +62,11 @@ input[type="checkbox"]{
     opacity: 100%;
 }
 
-.dark .center h1{
+.dark .text-center h1{
     color: white;
 }
 
-.dark .center h5{
+.dark .text-center h5{
     color: rgb(255, 242, 215);
 }
 
