@@ -22,8 +22,7 @@ input[type="checkbox"]{
 .bi {
     font-size: 1.7rem;
     cursor: pointer;
-    padding: 10px 20px;
-    margin-right: 25px;
+    padding: 10px;
 }
 
 .bi-sun:hover{
@@ -34,6 +33,10 @@ input[type="checkbox"]{
 
 .bi-moon{
     display: none;
+}
+
+.bi-sun{
+    display: flex;
 }
 
 
@@ -50,7 +53,7 @@ input[type="checkbox"]{
 }
 
 .dark .bi-moon{
-    display:block;
+    display: flex;
 }
 
 .dark .bi-moon:hover{
