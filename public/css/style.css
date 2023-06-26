@@ -22,7 +22,7 @@ span2{
 
 .detalhe {
     position: fixed;
-    background: url(../rainbow.svg);
+    background: url(../img/rainbow.svg);
     height: 20px;
     width: 100%;
     margin:none;
@@ -33,7 +33,7 @@ span2{
 
 .detalhe2 {
     
-    background: url(../rainbow.svg);
+    background: url(../img/rainbow.svg);
     height: 20px;
     width: 100%;
     margin:none;
@@ -139,46 +139,25 @@ span2{
 }
 
 
-.box img{
-    
-    padding: 20px 20px 20px 20px;
+.box{
+    display: flex;
+}
+.box img{   
+    padding: 20px;
     width: 250px;
     height: 250px;
     cursor: pointer;
     margin-bottom: 20px;
     transition: all .30s;
     object-fit: cover;
-
 }
-.box{
-    display: flex;
-}
-
-/* .box h5{
-    
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    margin-right: 100px;
-    color:black;
-    font-size: 2em;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-} */
-.box li{
-    position: relative;
-
-}
-
 .box h5{
+    vertical-align: bottom;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 2em;
-    padding-top: 30% ;
 }
-
 .box img:hover{
-    font-family: 'Roboto', sans-serif;
     transform: scale(1.1);
     object-fit: .7;
 }
