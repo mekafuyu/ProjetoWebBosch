@@ -118,5 +118,9 @@ input[type="checkbox"]{
     color: white;
 }
 
+.dark .card-title{
+    color: rgb(255, 242, 215)
+}
+
 
 

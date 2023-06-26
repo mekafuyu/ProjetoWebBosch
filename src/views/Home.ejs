@@ -20,27 +20,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet">
 
-
-  <link rel="stylesheet" href="../../public/css/style.css">
-
-  <link rel="stylesheet" href="../../public/css/efeitos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/efeitos.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="img/bosch.ico" type="image/x-icon">
 
-  <link rel="shortcut icon" href="../../public/img/bosch2.ico" type="image/x-icon">
-
-  <title>Cadastrar colaborador</title>
+  <title>Processos Seletivos Bosch</title>
 </head>
 
 <body>
-  <!-- <marquee direction="up"> -->
-
   <header>
     <div class="detalhe"></div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow mb-5">
       <div class="container-fluid">
-        <img src="../../public/img/bosch.ico" alt="IconeBosch" width="165px" height="90px" id="IconeBosch"
-          class="d-none d-md-flex">
+        <img src="img/bosch.ico" alt="IconeBosch" width="165px" height="90px" id="IconeBosch" class="d-none d-md-flex">
         <a class="navbar-brand" href="#" id="title">
           <span2>Processos Seletivos</span2>
         </a>
@@ -63,38 +57,53 @@
     </nav>
   </header>
 
-  <div class="container">
-    <div class="row col-12 col-md-6 mx-auto">
-      <div class="card">
-
-        <form action="/" method="post">
-          <div class="col-12 mt-5 mx-auto">
-            <h3 class="text-center mx-auto">Cadastrar novo Processo</h3>
-          </div>
-
-          <div class="col-6 mt-5 mx-auto">
-            <label for="nome" class="form-label text-center">
-              <h5>ID Processo</h5>
-            </label>
-            <input class="form-control mx-auto" type="text" id="nome" name="nome">
-          </div>
-
-          <div class="col-6 mt-5 mx-auto">
-            <label for="capacidade" class="form-label text-center">
-              <h5>Questões</h5>
-            </label>
-            <input class="form-control mx-auto" type="text" id="capacidade" name="capacidade">
-          </div>
-
-          <div class="col-6 my-5 mx-auto">
-            <input type="submit" class="btn btn-warning mx-auto btn-lg" value="Cadastrar">
-          </div>
-        </form>
-
+  <div class="text-center">
+    <h1>Bem Vindo!</h1>
+    <h5>Selecione abaixo sua categoria</h5>
+  </div>
+  <div class="row col-12 mx-auto">
+    <div class="strongbg">
+      <div class="row col-6 mx-auto text-center box">
+        <a class="col-12 col-md-6" href="1loginColaborador.html">
+          <img src="img/logo.png" class="rounded-circle img-fluid">
+        </a>
+        <h5 class="col-12 col-md-6 my-auto text-center text-md-start">Sou Colaborador</h5>
+      </div>
+      <div class="row col-6 mx-auto text-center box">
+        <a class="col-12 col-md-6" href="1loginColaborador.html">
+          <img src="img/prova.jpg" class="rounded-circle img-fluid">
+        </a>
+        <h5 class="col-12 col-md-6 my-auto text-center text-md-start">Sou Candidato</h5>
       </div>
     </div>
   </div>
-  <script src="../../public/js/efeitos.js" defer></script>
+
+  <footer>
+    <div id="footerContent">
+      <div id="footerContacts">
+        <h3>Tecnologia para a vida</h3>
+      </div>
+      <ul class="footerList">
+        <li><a href="https://www.bosch.com.br/contato/" class="footerLink" target="_blank">Informações gerais de
+            contato</a></li>
+        <li><a href="https://www.bosch.com/licenses-and-patents/" class="footerLink" target="_blank">Licenaças e
+            patentes</a></li>
+        <li><a href="https://www.bosch.com/company/supply-chain/" class="footerLink" target="_blank">Compras e
+            logística</a></li>
+      </ul>
+    </div>
+
+    <div id="footerCopyRight">
+      &#169
+      Robert Bosch Ltda. 2023, todos os direitos reservados
+      <a href="https://www.bosch.com.br/provedor/?prevent-auto-open-privacy-settings=1">Termos de uso </a>
+      <a href="https://www.bosch.com.br/avisos-legais/?prevent-auto-open-privacy-settings=1"> Aviso legal</a>
+      <a href="https://www.bosch.com.br/politica-de-privacidade/?prevent-auto-open-privacy-settings=1"> Declarações de
+        privacidade </a>
+    </div>
+  </footer>
+
+  <script src="js/efeitos.js" defer></script>
 </body>
 
 </html>
