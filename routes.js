@@ -11,7 +11,7 @@ routes
     .get('/LoginCol', login.getLoginCol).post('/LoginCol', login.loginCol)
     .get('/LoginCand', login.getLoginCol).post('/LoginCol', login.loginCol)
     .get('/Logout', login.logout)
-    .get('/HomeCol', home.getHomeCol)
-
+    .get('/HomeCol', home.getHomeCol).post('/HomeCol', home.postHomeCol)
+    .get('/HomeCand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
 
 module.exports = routes;
