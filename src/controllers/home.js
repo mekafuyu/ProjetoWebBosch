@@ -2,26 +2,27 @@ const processo = require ('../model/processo')
 
 module.exports = {
     async gethome(req, res){
-        res.render('../views/Home')
+        res.render('Home')
     },
-
+    
     async gethomecriar(req,res){
-        res.render('../views/HomeCriar')
+        res.render('HomeCriar')
     },
 
     async gethomecol(req,res){
-        const processos = await processo.findAll({
-            raw:true,
-            attributes: ['Situacao']
-        }); 
-        res.render('../views/HomeCol', {processos})
+
+        session=req.session;
+        if(session.edv){
+            const processos = await processo.findAll({
+                raw:true,
+                attributes: ['Situacao']
+            }); 
+            res.render('HomeCol', {processos})
+        }else
+        res.redirect('/')
     },
 
     async gethomecand(req,res){
-        res.render('../views/HomeCand')
+        res.render('HomeCand')
     }
-
-
-
-
 }

@@ -1,7 +1,6 @@
 const changeThemeBtn = document.querySelector("#change-theme");
 
 // toogle dark mode
-
 function toggleDarkMode(){
     document.body.classList.toggle("dark");
 }
@@ -9,7 +8,6 @@ function toggleDarkMode(){
 // load mode
 function loadTheme(){
     const darkMode = localStorage.getItem("dark");
-
     if(darkMode){
         toggleDarkMode();
     }
@@ -23,9 +21,7 @@ changeThemeBtn.addEventListener("change", function(){
     // save mode
     localStorage.removeItem("dark");
 
-    if(document.body.classList("dark")){
+    if(document.body.classList.value == "dark"){
         localStorage.setItem("dark",1);
-    }
-
-  
+    } 
 })
