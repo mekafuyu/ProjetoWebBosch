@@ -12,7 +12,6 @@ const candidato = database.define('Candidato', {
 
     Nome: {
         type: Sequelize.STRING(100),
-        autoIncrement: true,
         allowNull: false
     },
 

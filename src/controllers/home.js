@@ -1,16 +1,15 @@
 const processo = require ('../model/processo')
 
 module.exports = {
-    async gethome(req, res){
+    async getHome(req, res){
         res.render('Home')
     },
-    
-    async gethomecriar(req,res){
+
+    async getHomeCriar(req,res){
         res.render('HomeCriar')
     },
 
-    async gethomecol(req,res){
-
+    async getHomeCol(req,res){
         session=req.session;
         if(session.edv){
             const processos = await processo.findAll({
@@ -22,7 +21,7 @@ module.exports = {
         res.redirect('/')
     },
 
-    async gethomecand(req,res){
+    async getHomeCand(req,res){
         res.render('HomeCand')
     }
 }

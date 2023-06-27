@@ -7,11 +7,16 @@ const senha = 'mypassword'
 var session;
 
 module.exports =  {
-    async getlogincand(req,res){
+    async getLoginCand(req,res){
         res.render('../views/LoginCand')
     },
 
-    async getlogincol(req,res){
+    async getLoginCol(req,res){
+        if(req.session.edv){
+            res.redirect('HomeCol');
+            return;
+        }
+
         res.render('LoginCol')
     },
 
