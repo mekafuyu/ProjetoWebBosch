@@ -4,7 +4,7 @@ const processo = require ('../model/processo');
 module.exports = {
 
     async colaborador(req, res){
-        res.render('../views/AddCol');
+        res.render('./AddCol');
     },
 
     async colaboradorInsert(req, res){
@@ -18,7 +18,7 @@ module.exports = {
     },
 
     async processo(req, res){
-        res.render('../AddProc');
+        res.render('./AddProc');
     },
 
     async processoInsert(req,res){

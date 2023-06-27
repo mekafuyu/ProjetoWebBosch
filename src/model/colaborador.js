@@ -10,7 +10,6 @@ const colaborador = database.define('Colaborador', {
     },
     EDV: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
