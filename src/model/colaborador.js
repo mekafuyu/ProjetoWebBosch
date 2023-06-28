@@ -2,12 +2,6 @@ const Sequelize = require('sequelize');
 const database = require('../config/db');
 
 const colaborador = database.define('Colaborador', {
-    IDColaborador: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
     EDV: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -17,6 +11,9 @@ const colaborador = database.define('Colaborador', {
         type: Sequelize.STRING(16),
         allowNull: false
     },
+},
+{
+    freezeTableName: true
 })
 
 module.exports = colaborador

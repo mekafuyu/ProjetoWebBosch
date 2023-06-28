@@ -73,10 +73,16 @@
           </div>
 
           <div class="col-6 mt-5 mx-auto">
-            <label for="nome" class="form-label text-center">
+            <label for="IDCandidato" class="form-label text-center">
               <h5>ID Candidato</h5>
             </label>
-            <input class="form-control mx-auto" type="text" id="nome" name="nome">
+            <input class="form-control mx-auto" type="text" id="IDCandidato" name="IDCandidato" pattern="[0-9]+" required
+            oninvalid="
+            if (this.validity.valueMissing){
+              setCustomValidity('Preencha o campo')
+            } else if (this.validity.patternMismatch){
+              setCustomValidity(this.validity.patternMismatch)
+            } else this.forms.submit()" oninvalid="this.foms.submit()">
           </div>
 
           <div class="col-6 my-5 mx-auto">
