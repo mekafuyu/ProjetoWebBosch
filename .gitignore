@@ -1,3 +1,7 @@
+# Resultados do Script
+public/img/results/*
+public/img/exams/*
+
 # Logs
 logs
 *.log
