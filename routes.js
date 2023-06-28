@@ -3,6 +3,7 @@ const routes = express.Router();
 const login = require('./src/controllers/login')
 const cadastro = require('./src/controllers/cadastro');
 const home = require('./src/controllers/home');
+const corrigir =  require('./src/controllers/pythoncaller')
 
 routes
     .get('/', home.getHome)
@@ -13,5 +14,6 @@ routes
     .get('/Logout', login.logout)
     .get('/HomeCol', home.getHomeCol).post('/HomeCol', home.postHomeCol)
     .get('/HomeCand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
+    .get('/Corrigir', corrigir.getCorrect).post('/Corrigir', corrigir.postCorrect)
 
 module.exports = routes;
