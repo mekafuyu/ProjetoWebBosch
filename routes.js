@@ -10,7 +10,7 @@ routes
     .get('/HomeCol', home.getHomeCol).post('/HomeCol', home.postHomeCol)
     .get('/HomeCriar', home.getHomeCriar)
     .get('/HomeCand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
-    .get('/LoginCol', login.getLoginCol).post('/LoginCol', login.loginCol)
+    .get('/LoginCol', login.getLoginCol).post('/LoginCol', login.loginCol).post('/TryLoginCol', login.tryLoginCol)
     .get('/LoginCand', login.getLoginCand).post('/LoginCand', login.loginCand)
     .get('/Logout', login.logout)
     .get('/AddCol', cadastro.colaborador).post('/AddCol', cadastro.colaboradorInsert)

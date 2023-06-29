@@ -5,6 +5,11 @@ from PIL import Image, ImageFilter, ImageOps
 from skimage import filters
 from skimage.io import imread
 
+IMRPATH = './public/img/results/'
+JSONPATH = './src/scripts'
+# IMRPATH = '../../public/img/results/'
+# JSONPATH = './'
+
 # Imagem passada pelo usuário
 IMAGEM = sys.argv[1]
 img = imread(IMAGEM, as_gray=True)
@@ -12,16 +17,11 @@ img = imread(IMAGEM, as_gray=True)
 # Threshold idela para as imagens
 threshold = int((filters.threshold_otsu(img))*255)
 
-# Função para comparar proximidade dos pontos mais tarde
-def isNear(ponto1, ponto2):
-    if abs(ponto1[0]-ponto2[0]) < tolerancia:
-        return True;
-
 # Abrir e cortar bordas da imagem
 img = Image.open(IMAGEM).convert('L').filter(ImageFilter.BLUR)
 width, height = img.size
 img = img.crop(( width/12, height/12, width*11/12, height*11/12 ))
-img.save("./public/img/results/teste2.png")
+img.save(IMRPATH+"teste2.png")
 
 # Abrir imagem como um array de pretos e brancos
 im_gray = np.array(img)
@@ -29,8 +29,13 @@ im_bin = (im_gray > threshold) * 255
 
 # Variaveis para lidar com tamanhos diferentes de imagem
 metrica = len( im_bin[0] )
-tolerancia = int( metrica * 0.025 )
+tolerancia = int( metrica * 0.02 )
 pontos = []
+
+# Função para comparar proximidade dos pontos mais tarde
+def isNear(ponto1, ponto2):
+    if (abs(ponto1[0]-ponto2[0]) < tolerancia):
+        return True;
 
 # Contador de pretos
 countPreto = 0
@@ -67,6 +72,8 @@ for x in range( len(im_bin) ):
         countPreto = 0
     countPreto = 0
 
+print(pontos)
+
 # Filtrar pontos que estão muito próximos
 newpontos = []
 for i in range(len(pontos) - 1):
@@ -78,11 +85,11 @@ if len(pontos) != 0:
     newpontos.append(pontos[-1])
     
 # Salvar imagem a partir de um array
-Image.fromarray(np.uint8(im_bin)).save('./public/img/results/teste.png')
+Image.fromarray(np.uint8(im_bin)).save(IMRPATH + 'teste.png')
 
 jsonpontos = {"pontos" : newpontos}
 json_object_result = json.dumps(jsonpontos, indent=4)
-with open('./src/scripts/results.json', 'w') as outfile:
+with open(JSONPATH + '/results.json', 'w') as outfile:
         outfile.write(json_object_result)
 
 print('ok')
