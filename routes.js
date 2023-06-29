@@ -1,4 +1,7 @@
-const express = require('express')
+const multer = require('multer');
+const config = require('./src/config/multer');
+
+const express = require('express');
 const routes = express.Router();
 const login = require('./src/controllers/login')
 const cadastro = require('./src/controllers/cadastro');
@@ -14,6 +17,6 @@ routes
     .get('/Logout', login.logout)
     .get('/HomeCol', home.getHomeCol).post('/HomeCol', home.postHomeCol)
     .get('/HomeCand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
-    .get('/Corrigir', corrigir.getCorrect).post('/Corrigir', corrigir.postCorrect)
+    .get('/Corrigir', corrigir.getCorrect).post('/Corrigir', multer (config).single('exam'), corrigir.postCorrect)
 
 module.exports = routes;

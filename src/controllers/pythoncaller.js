@@ -17,7 +17,7 @@ module.exports = {
     
         var process = spawn('python',["./src/scripts/script.py",
                                 req.body.path] );
-      
+                                
         process.stdout.on('data', function(data) {
             res.send(data.toString());
         } )

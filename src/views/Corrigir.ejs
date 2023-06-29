@@ -59,9 +59,9 @@
     </nav>
   </header>
   <div class="card col-6 mx-auto">
-    <form action="/Corrigir" method="post">
+    <form action="/Corrigir" method="post" enctype="multipart/form-data">
       <label for="path">Caminho</label>
-      <input type="text" name="path" id="path">
+      <input type="file" name="path" id="path" accept="image/*">
     </form>
   </div>
 
