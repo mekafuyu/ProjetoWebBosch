@@ -9,6 +9,40 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.hide{
+    opacity: 0 !important;
+    transition: 200ms;
+}
+.alerta{
+    opacity: 1;
+    display: flex;
+    background-color: rgba(199, 0, 0, 0.3);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(100, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 5px;
+    width: auto;
+    transition: 200ms;
+    /* justify-content: center; */
+}
+.alerta button{
+    border-radius: 20%;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(100, 0, 0, 0.3);
+    width: 6%;
+}
+.alerta button:hover{
+    background-color: rgba(199, 0, 0, 0.3);;
+    transition: 200ms;
+}
+.alerta span{
+    width: 100%;
+}
+
+
 span2{
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
