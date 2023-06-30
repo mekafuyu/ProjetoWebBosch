@@ -67,6 +67,27 @@
   </header>
 
   <div class="row col-10 mx-auto">
+
+   <% for (let i=0; i<processos.length; i++) { %>
+      <div class="col-md-4">
+        <div class="card">
+          <h5 class="card-title">Processo: <%= processos[i].Nome %></h5>
+          <p class="text-center">Situação: <%= processos[i].Situacao %></p>
+          <a href="<%= processos[i].IDProcesso %>" class="btn btn-dark mb-3 mx-auto">Ver Detalhes</a>
+        </div>
+      </div>
+  <% } %>
+    
+      <!-- <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Processo BLABLABLA</h5>
+          <p class="text-center">Descrição aaadddasd</p>
+          <a href="#" class="btn btn-dark mb-3 mx-auto">Ver Detalhes</a>
+        </div>
+      </div>
+    
+
+
     <div class="col-md-4">
       <div class="card">
         <div class="card-body">
@@ -75,21 +96,11 @@
           <a href="#" class="btn btn-dark mb-3 mx-auto">Ver Detalhes</a>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Processo BLABLABLA</h5>
-        <p class="text-center">Descrição aaadddasd</p>
-        <a href="#" class="btn btn-dark mb-3 mx-auto">Ver Detalhes</a>
-      </div>
-    </div>
-  </div>
-
-</div>
+  
 
 
   <script src="js/efeitos.js" defer></script>

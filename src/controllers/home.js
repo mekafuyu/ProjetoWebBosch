@@ -7,15 +7,18 @@ module.exports = {
 
     async getHome(req, res) {
         if (req.session.edv){
-            res.render('HomeCol')
+            const processos = await processo.findAll({
+                raw: true,
+                attributes: ['IDProcesso','Nome', 'Situacao']
+            });
+            console.log(processos)
+            res.render('HomeCol', { processos })
         } else res.render('Home')
     },
 
     async getHomeCriar(req, res) {
         res.render('HomeCriar')
     },
-
-
 
     async postHomeCol(req, res) {
         const si = req.body.Situacao;
