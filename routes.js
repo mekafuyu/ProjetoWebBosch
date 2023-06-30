@@ -6,7 +6,8 @@ const routes = express.Router();
 const login = require('./src/controllers/login')
 const cadastro = require('./src/controllers/cadastro');
 const home = require('./src/controllers/home');
-const corrigir =  require('./src/controllers/pythoncaller')
+const corrigir =  require('./src/controllers/pythoncaller');
+
 
 routes
     .get('/', home.getHome)
@@ -19,5 +20,6 @@ routes
     .get('/AddCol', cadastro.colaborador).post('/AddCol', cadastro.colaboradorInsert)
     .get('/AddProc', cadastro.processo).post('/AddProc', cadastro.processoInsert)
     .get('/Corrigir', corrigir.getCorrect).post('/Corrigir', corrigir.postCorrect)
+   
 
 module.exports = routes;

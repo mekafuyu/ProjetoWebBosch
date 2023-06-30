@@ -28,10 +28,10 @@ module.exports = {
         const si = req.body.Situacao;
         const processos = await processo.findAll({
             raw: true,
-            attributes: ['IDProcesso', 'Etapa', 'Situacao'],
+            attributes: ['IDProcesso', 'Nome', 'Etapa', 'Situacao'],
             where: { Situacao: si }
         });
-        res.render('HomeCol')
+        res.render('HomeCol', {processos})
 
 
     },

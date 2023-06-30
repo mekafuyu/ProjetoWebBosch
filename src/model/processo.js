@@ -9,6 +9,11 @@ const processo = database.define('Processo', {
         primaryKey: true
     },
 
+    Nome: {
+        type: Sequelize.STRING(100),
+        allowNull: false
+    },
+
     Etapa: {
         type: Sequelize.INTEGER,
         allowNull: false

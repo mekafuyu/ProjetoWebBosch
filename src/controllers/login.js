@@ -28,7 +28,7 @@ module.exports = {
 
         const processos = await processo.findAll({
             raw: true,
-            attributes: ['IDProcesso', 'Etapa', 'Situacao'],
+            attributes: ['IDProcesso','Nome', 'Etapa', 'Situacao'],
             where: { IDProcesso: 1 }
         });
 
