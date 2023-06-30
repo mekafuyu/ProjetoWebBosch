@@ -35,52 +35,7 @@ module.exports = {
         res.redirect('/HomeCand')
     },
 
-    async getLoginCol(req, res) {
-        if (req.session.edv) {
-            res.redirect('HomeCol');
-            return;
-        }
-        res.render('LoginCol')
-    },
-
-    async loginCol(req, res) {
-        const dados = req.body;
-        dados.edv = Number(dados.edv)
-        if(isNaN(dados.edv)){
-            res.redirect('/')
-            return
-        }
-
-        const login = await colaborador.findByPk(dados.edv, {
-            raw: true
-        })
-
-        if(!login){
-            res.redirect('/')
-            return
-        }
-        
-        // if (dados.edv == edv && dados.senha == senha) {
-        //     session = req.session;
-        //     session.edv = dados.edv;
-        //     console.log(req.session)
-        //     res.redirect('/HomeCol')
-        // }
-        // else {
-        //     res.redirect('/')
-        // }
-
-        if (dados.edv == login.EDV && dados.senha == login.Senha) {
-            session = req.session;
-            session.edv = dados.edv;
-            // console.log(req.session)
-            res.redirect('/HomeCol')
-        }
-        else {
-            res.redirect('/')
-        }
-    },
-    async tryLoginCol(req, res){
+    async loginCol(req, res){
         const dados = req.body;
         dados.edv = Number(dados.edv)
         console.log(dados)
@@ -100,6 +55,7 @@ module.exports = {
         }
 
         if (dados.edv == login.EDV && dados.senha == login.Senha) {
+            req.session.edv = dados.edv;
             res.status(200).send({success : 'Login valido'})
         }
         else {
