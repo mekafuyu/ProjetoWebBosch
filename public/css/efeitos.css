@@ -48,6 +48,14 @@ input[type="checkbox"]{
     color: #000000;
 }
 
+.dark .btn-close {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark .bi-eye-slash{
+    color: white;
+}
+
 .dark .bi-sun{
     display: none;
 }
@@ -135,4 +143,6 @@ input[type="checkbox"]{
     font-weight: 800;
     border-color: rgb(255, 0, 0);
 }
+
+
 
