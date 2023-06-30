@@ -17,8 +17,9 @@ module.exports = {
         if (session.edv) {
             const processos = await processo.findAll({
                 raw: true,
-                attributes: ['Situacao']
+                attributes: ['IDProcesso','Nome', 'Situacao']
             });
+            console.log(processos)
             res.render('HomeCol', { processos })
         } else
             res.redirect('/')
