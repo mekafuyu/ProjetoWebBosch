@@ -33,16 +33,6 @@ metrica = len( im_bin[0] )
 tolerancia = int( metrica * 0.025 )
 pontos = []
 
-# # Função para comparar proximidade dos pontos mais tarde
-# def isNear(ponto1, ponto2):
-#     distancia = int(math.sqrt((ponto1[0]-ponto2[0])**2 + (ponto1[1]-ponto2[1])**2))
-#     if distancia < tolerancia:
-#         print(ponto1, ponto2, distancia, '<br>')
-#         return True
-        
-        
-
-
 # Contador de pretos
 countPreto = 0
 for x in range( len(im_bin) ):
@@ -52,22 +42,30 @@ for x in range( len(im_bin) ):
             countPreto += 1
             continue;
         
-        if countPreto > tolerancia:
+        if countPreto > tolerancia and countPreto < tolerancia * 4:
+            
             offset = y - int(countPreto/2)
-            
-            pinta = True
-            
-            # Verificar a área ao redor do ponto encontrado
-            for i in range(tolerancia):
+            pinta = False
+
+            i = 0
+            while (cima == 0 or baixo == 0):
                 # Try catch pra não explodir quando próximo às extremidades
                 try:
                     cima = im_bin[ x + i , offset ]
-                    baixo = im_bin [x - i , offset ]
+                    if cima == 0:
+                        xcima = x + i
                 except:
-                    cima, baixo = 0 , 0
-                
-                if cima == 0 and baixo == 0:
+                    cima = 0
+                try:
+                    baixo = im_bin [x - i , offset ]
+                    if baixo == 0:
+                        xbaixo = x + i
+                except:
+                    baixo = 0         
+                    
+                if cima == 0 or baixo == 0:
                     continue
+                
                 pinta = False
                 break;
             
@@ -77,44 +75,12 @@ for x in range( len(im_bin) ):
                 
         countPreto = 0
     countPreto = 0
+Image.fromarray(np.uint8(im_bin)).save(IMRPATH + 'testeb.png')
 
-# print(pontos)
-
-# Filtrar pontos que estão muito próximos
-# newpontos = []
-# for i in range(len(pontos) - 1):
-#     if isNear(pontos[i],pontos[i + 1]):
-#         im_bin[pontos[i][0] , pontos[i][1]] = 0
-#         continue
-#     newpontos.append(pontos[i])
-# if len(pontos) != 0:
-#     newpontos.append(pontos[-1])
-# newpontos = []
-# for i in range(len(pontos) - 1):
-#     proximos = [pontos[i]]
-#     tempi = i
-    
-#     for j in range(len(pontos) - 1):
-#         if isNear(pontos[tempi],pontos[j]):
-#             proximos.append(pontos[j])
-#             tempi = j
-    
-#     pc = pontos[math.ceil(len(proximos)/2)]
-    
-#     for k in range(len(proximos)):
-#         im_bin[proximos[k][0], proximos[k][1]] = 0
-        
-#     im_bin[pc[0], pc[1]] = 130
-#     newpontos.append()
-
-
-
-print (pontos)
-
-def isPointNear(point, points):
-    for i in range(len(points)):
-        distancia = int(math.sqrt((point[0]-points[i][0])**2 + (point[1]-points[i][1])**2))
-        if distancia < tolerancia:
+def isPointNear(point, newpoints):
+    for newpoint in newpoints:
+        distancia = int(math.sqrt((point[0]-newpoint[0])**2 + (point[1]-newpoint[1])**2))
+        if distancia < tolerancia*3:
             return True
     return False
 
@@ -122,19 +88,10 @@ newpontos = []
 pointsnear = True
 for ponto in pontos:
     if isPointNear(ponto,newpontos):
+        im_bin[ponto[0], ponto[1]] = 0
         continue
     newpontos.append(ponto)
-    
 
-    
-
-
-
-        
-        
-# if len(pontos) != 0:
-#     newpontos.append(pontos[-1])
-# Salvar imagem a partir de um array
 Image.fromarray(np.uint8(im_bin)).save(IMRPATH + 'teste.png')
 
 jsonpontos = {"pontos" : newpontos}
