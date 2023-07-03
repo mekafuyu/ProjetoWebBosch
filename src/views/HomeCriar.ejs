@@ -26,13 +26,11 @@
     <div class="detalhe"></div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow mb-5">
       <div class="container-fluid">
-        <img src="img/bosch.ico" alt="IconeBosch" width="165px" height="90px" id="IconeBosch"
-          class="d-none d-md-flex">
+        <img src="img/bosch.ico" alt="IconeBosch" width="165px" height="90px" id="IconeBosch" class="d-none d-md-flex">
         <a class="navbar-brand" href="/" id="title">
           <span2>Processos Seletivos</span2>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
-          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -51,23 +49,98 @@
   </header>
 
   <div class="text-center">
-    <h1>Selecione abaixo o que deseja adicionar</h1>
+    <h1>Selecione </h1>
+    <h5>o item que você deseja Adicionar</h5>
   </div>
 
   <div class="strongbg">
-    <div class="row col-6 mx-auto text-center box">
-      <a class="col-12 col-md-6" href="/AddCol">
-        <img src="img/logo.png" class="rounded-circle img-fluid">
+    <div class="row col-6 mx-auto text-center box" id="text">
+      <a class="col-12 col-md-6" data-bs-toggle="modal" data-bs-target="#JanelaModalCriar">
+        <img src="img/login.png" class="rounded-circle img-fluid">
       </a>
-      <h5 class="col-12 col-md-6 my-auto text-center text-md-start"><span2>Adicionar Colaborador</span2></h5>
+      <h5 class="col-12 col-md-6 my-auto text-center text-md-start"><span>Adicionar</span> Colaborador</h5>
+    </div>
+    <div id="JanelaModalCriar" class="modal fade">
+      <div class="modal-dialog border-rounded">
+        <div class="modal-content strongbg">
+
+          <div class="modal-header border-0">
+            <button type="button" class="btn btn-close " data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body rounded">
+            <h5 class="text-center mx-auto">Cadastrar novo colaborador</h5>
+
+            <form action="/AddCol" method="post">
+
+              <div class="col-6 mt-5 mx-auto">
+                <label for="edv" class="form-label text-center">
+                  <h5>EDV</h5>
+                </label>
+                <input class="form-control mx-auto" type="text" id="edv" name="edv">
+              </div>
+
+              <div class="col-6 mt-5 mx-auto">
+                <label for="senha" class="form-label text-center">
+                  <h5>Senha</h5>
+                </label>
+                <input class="form-control mx-auto" type="text" id="senha" name="senha">
+              </div>
+
+              <div class="col-6 my-5 mx-auto">
+                <input type="submit" class="btn btn-warning mx-auto btn-lg" value="Cadastrar">
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="row col-6 mx-auto text-center box">
-      <a class="col-12 col-md-6" href="/AddProc">
-        <img src="img/prova.jpg" class="rounded-circle img-fluid">
+    <div class="row col-6 mx-auto text-center box" id="text">
+      <a class="col-12 col-md-6" data-bs-toggle = "modal" data-bs-target="#JanelaModalCriarProc">
+        <img src="img/prova2.jpg" class="rounded-circle img-fluid">
       </a>
-      <h5 class="col-12 col-md-6 my-auto text-center text-md-start"><span2>Criar novo Processo Seletivo</span2></h5>
+      <h5 class="col-12 col-md-6 my-auto text-center text-md-start"><span>Criar</span> Novo Processo Seletivo</h5>
     </div>
+    <div id="JanelaModalCriarProc" class="modal fade">
+      <div class="modal-dialog border-rounded">
+        <div class="modal-content strongbg">
+
+          <div class="modal-header border-0">
+            <button type="button" class="btn btn-close " data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body rounded">
+            <h3 class="text-center mx-auto">Cadastrar novo Processo</h3>
+
+            <form action="/AddProc" method="post">
+              <div class="col-6 mt-5 mx-auto">
+                <label for="nome" class="form-label text-center">
+                  <h5>ID Processo</h5>
+                </label>
+                <input class="form-control mx-auto" type="text" id="nome" name="nome">
+              </div>
+    
+              <div class="col-6 mt-5 mx-auto">
+                <label for="capacidade" class="form-label text-center">
+                  <h5>Questões</h5>
+                </label>
+                <input class="form-control mx-auto" type="text" id="capacidade" name="capacidade">
+              </div>
+    
+              <div class="col-6 my-5 mx-auto">
+                <input type="submit" class="btn btn-warning mx-auto btn-lg" value="Cadastrar">
+              </div>
+            </form>
+    
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 
   <script src="js/efeitos.js" defer></script>

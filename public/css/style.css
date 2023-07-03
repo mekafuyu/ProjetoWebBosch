@@ -48,6 +48,9 @@
     width: 100%;
 }
 
+span{
+    color: red;
+}
 
 span2{
     font-family: 'Roboto', sans-serif;
@@ -57,6 +60,12 @@ span2{
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+    letter-spacing: 1px;
+}
+
+span3{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     letter-spacing: 1px;
 }
 
@@ -156,6 +165,16 @@ span2{
     padding-bottom: 1%;
 }
 
+/* janela criar */
+
+#text h5 {
+    font-family: 'Roboto', sans-serif;
+    color:rgb(53, 53, 53);
+    letter-spacing: 1px;
+    line-height: 28px; 
+    padding-bottom: 1%;
+}
+
 /* cards */
 
 .strongbg{
@@ -164,6 +183,12 @@ span2{
 
 .card{ 
     background-color: rgb(213, 202, 186) ;
+    margin-top: 5%;
+}
+
+.card h5{
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 
@@ -192,9 +217,26 @@ span2{
 
 
 /* modals */
+.senhasDesign{
+    display: flex;
+}
 
+.bi-eye{
+    position: absolute;
+    cursor: pointer;
+    color: #000000;
+    top: 57%;
+    right: 27%;
+}
 
+.bi-eye-slash{
+    position: absolute;
+    cursor: pointer;
 
+    top: 57%;
+    right: 27%;
+    color: #000000;
+}
 /* footer */
 
 footer{

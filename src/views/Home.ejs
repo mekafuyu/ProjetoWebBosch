@@ -92,8 +92,10 @@
                   <label for="senha" class="form-label text-center">
                     <h5>Senha</h5>
                   </label>
-                  <i class="bi bi-eye-slash" id="togglePassword"></i>
-                  <input class="form-control mx-auto" type="text" id="senha" name="senha">
+                  <div class="senhasDesign">
+                    <input class="form-control mx-auto" type="password" id="senha" name="senha">
+                      <i class="bi bi-eye" ></i>
+                  </div>
                 </div>
 
 
@@ -123,7 +125,7 @@
             </div>
             <div class="modal-body rounded">
 
-              
+
               <h3 class="text-center mx-auto">Candidato, faça seu Login</h3>
 
               <form action="/LoginCand" method="post">
@@ -186,7 +188,7 @@
   </footer>
 
 
-
+  <script src="js/password.js"></script>
   <script src="js/efeitos.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
   <script src="js/jquery.js"></script>
