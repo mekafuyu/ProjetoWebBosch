@@ -5,7 +5,7 @@ $(' #entrar ').on('click', (e) => {
 
     $.ajax({
         type: 'POST',
-        url: '/TryLoginCol',
+        url: '/LoginCol',
         data: {
             edv: edv,
             senha: senha

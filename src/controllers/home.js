@@ -1,28 +1,23 @@
 const processo = require('../model/processo')
 const candidato = require('../model/candidato')
+const session = require('express-session')
 
 
 module.exports = {
 
     async getHome(req, res) {
-        res.render('Home')
-    },
-
-    async getHomeCriar(req, res) {
-        res.render('HomeCriar')
-    },
-
-    async getHomeCol(req, res) {
-        session = req.session;
-        if (session.edv) {
+        if (req.session.edv){
             const processos = await processo.findAll({
                 raw: true,
                 attributes: ['IDProcesso','Nome', 'Situacao']
             });
             console.log(processos)
             res.render('HomeCol', { processos })
-        } else
-            res.redirect('/')
+        } else res.render('Home')
+    },
+
+    async getHomeCriar(req, res) {
+        res.render('HomeCriar')
     },
 
     async postHomeCol(req, res) {
@@ -33,8 +28,6 @@ module.exports = {
             where: { Situacao: si }
         });
         res.render('HomeCol', {processos})
-
-
     },
 
 
