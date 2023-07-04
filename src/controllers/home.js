@@ -1,3 +1,5 @@
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 const processo = require('../model/processo')
 const candidato = require('../model/candidato')
 const session = require('express-session')
@@ -7,10 +9,19 @@ module.exports = {
 
     async getHome(req, res) {
         if (req.session.edv){
-            const processos = await processo.findAll({
-                raw: true,
-                attributes: ['IDProcesso','Nome', 'Situacao']
-            });
+            let processos;
+            if (req.body.search){
+                processos = await processo.findAll({
+                    raw: true,
+                    attributes: ['IDProcesso','Nome', 'Situacao'],
+                    where: { Nome : { [Op.substring]: req.body.search } }
+                });
+            } else {
+                processos = await processo.findAll({
+                    raw: true,
+                    attributes: ['IDProcesso','Nome', 'Situacao']
+                });
+            }
             console.log(processos)
             res.render('HomeCol', { processos })
         } else res.render('Home')
