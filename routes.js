@@ -13,9 +13,10 @@ routes
     .get('/', home.getHome).post('/',home.getHome)
     .post('/LoginCol', login.loginCol).get('/HomeCriar', home.getHomeCriar).get('/Logout', login.logout)
     .post('/LoginCand', login.loginCand).get('/HomeCand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
+    .get('/Proc/:IDProcesso', home.viewProc)
 
     .get('/AddCol', cadastro.colaborador).post('/AddCol', cadastro.colaboradorInsert)
-    .get('/AddProc', cadastro.processo).post('/AddProc', cadastro.processoInsert)
+    .get('/AddProc', cadastro.processo).post('/AddProc', multer(config).single('candidatos'), cadastro.processoInsert)
 
     .get('/Corrigir', corrigir.getCorrect).post('/Corrigir', multer(config).single('gabarito'), corrigir.postCorrect)
 

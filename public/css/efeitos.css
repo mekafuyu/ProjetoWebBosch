@@ -89,6 +89,9 @@ input[type="checkbox"]{
 .dark .strongbg{
     background-color: rgb(28, 28, 36);
 }
+.dark .lightbg{
+    background-color: rgb(32, 32, 46);
+}
 
 .dark .box h5{
     color: white;

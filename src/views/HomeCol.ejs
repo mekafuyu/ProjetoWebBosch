@@ -73,7 +73,7 @@
         <div class="card">
           <h5 class="card-title"><span3>Processo:</span3> <%= processos[i].Nome %></h5>
           <p class="text-center"><span3>Situação:</span3> <%= processos[i].Situacao == 'Aberto' ? 1 : 'Fechado' %></p>
-          <a href="<%= processos[i].IDProcesso %>" class="btn btn-dark mb-3 mx-auto">Ver Detalhes</a>
+          <a href="/Proc/<%= processos[i].IDProcesso %>" class="btn btn-dark mb-3 mx-auto">Ver Detalhes</a>
         </div>
       </div>
   <% } %>

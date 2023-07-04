@@ -114,19 +114,19 @@
           <div class="modal-body rounded">
             <h3 class="text-center mx-auto">Cadastrar novo Processo</h3>
 
-            <form action="/AddProc" method="post">
+            <form action="/AddProc" method="post" enctype="multipart/form-data">
               <div class="col-6 mt-5 mx-auto">
                 <label for="nome" class="form-label text-center">
-                  <h5>ID Processo</h5>
+                  <h5>Nome do Curso</h5>
                 </label>
                 <input class="form-control mx-auto" type="text" id="nome" name="nome">
               </div>
     
               <div class="col-6 mt-5 mx-auto">
-                <label for="capacidade" class="form-label text-center">
-                  <h5>Questões</h5>
+                <label for="candidatos" class="form-label text-center" >
+                  <h5>Candidatos</h5>
                 </label>
-                <input class="form-control mx-auto" type="text" id="capacidade" name="capacidade">
+                <input class="form-control mx-auto" type="file" id="candidatos" name="candidatos">
               </div>
     
               <div class="col-6 my-5 mx-auto">

@@ -22,7 +22,7 @@ module.exports = {
                     attributes: ['IDProcesso','Nome', 'Situacao']
                 });
             }
-            console.log(processos)
+            // console.log(processos)
             res.render('HomeCol', { processos })
         } else res.render('Home')
     },
@@ -58,5 +58,16 @@ module.exports = {
             attributes: ['IDCandidato', 'Nome', 'Nota1', 'Nota2', 'Nota3', 'Nota4']
         });
         res.render('HomeCand', {processos, candidatos})
+    },
+
+    async viewProc(req, res) {
+        const id = req.params.IDProcesso;
+        const candidatos = await candidato.findAll({
+            raw: true,
+            attributes: ['IDCandidato', 'Nome', 'Nota1', 'Nota2', 'Nota3', 'Nota4', 'IDProcesso'],
+            where: { IDProcesso : id }
+        });
+
+        res.render('ViewProc', { candidatos })
     }
 }
