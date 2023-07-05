@@ -33,6 +33,15 @@ metrica = len( im_bin[0] )
 tolerancia = int( metrica * 0.025 )
 pontos = []
 
+# # Função para comparar proximidade dos pontos mais tarde
+def isPointNear(point, newpoints):
+    for newpoint in newpoints:
+        distancia = int(math.sqrt((point[0]-newpoint[0])**2 + (point[1]-newpoint[1])**2))
+        if distancia < tolerancia*3:
+            im_bin[point[0], point[1]] = 0
+            return True
+    return False
+
 # Contador de pretos
 countPreto = 0
 for x in range( len(im_bin) ):
@@ -43,29 +52,21 @@ for x in range( len(im_bin) ):
             continue;
         
         if countPreto > tolerancia and countPreto < tolerancia * 4:
-            
             offset = y - int(countPreto/2)
-            pinta = False
-
-            i = 0
-            while (cima == 0 or baixo == 0):
+            
+            pinta = True
+            
+            # Verificar a área ao redor do ponto encontrado
+            for i in range(tolerancia):
                 # Try catch pra não explodir quando próximo às extremidades
                 try:
                     cima = im_bin[ x + i , offset ]
-                    if cima == 0:
-                        xcima = x + i
-                except:
-                    cima = 0
-                try:
                     baixo = im_bin [x - i , offset ]
-                    if baixo == 0:
-                        xbaixo = x + i
                 except:
-                    baixo = 0         
-                    
-                if cima == 0 or baixo == 0:
-                    continue
+                    cima, baixo = 0 , 0
                 
+                if cima == 0 and baixo == 0:
+                    continue
                 pinta = False
                 break;
             
@@ -77,26 +78,40 @@ for x in range( len(im_bin) ):
     countPreto = 0
 Image.fromarray(np.uint8(im_bin)).save(IMRPATH + 'testeb.png')
 
-def isPointNear(point, newpoints):
-    for newpoint in newpoints:
-        distancia = int(math.sqrt((point[0]-newpoint[0])**2 + (point[1]-newpoint[1])**2))
-        if distancia < tolerancia*3:
-            return True
-    return False
-
 newpontos = []
 pointsnear = True
 for ponto in pontos:
     if isPointNear(ponto,newpontos):
-        im_bin[ponto[0], ponto[1]] = 0
         continue
     newpontos.append(ponto)
+        
+QUANTQUESTOES = int(sys.argv[2])
+# QUANTQUESTOES = 6
 
+divResV = int((height - height/10 - tolerancia)/QUANTQUESTOES)
+divResH = int((width - width/10 - tolerancia)/5)
+
+posRes = ['a','b','c','d','e']
+respostas = {}
+for i in range(QUANTQUESTOES):
+    respostas[i+1] = []
+
+
+for ponto in newpontos:
+    for i in range(QUANTQUESTOES+1):
+        if ponto[0] > i*divResV:
+            continue
+        for j in range(5):
+            if ponto[1] < (j+1)*divResH:
+                respostas[i].append(posRes[j])
+                break
+        break
+    
+# Salvar imagem a partir de um array
 Image.fromarray(np.uint8(im_bin)).save(IMRPATH + 'teste.png')
 
-jsonpontos = {"pontos" : newpontos}
-json_object_result = json.dumps(jsonpontos, indent=4)
+json_object_result = json.dumps(respostas, indent=4)
 with open(JSONPATH + '/results.json', 'w') as outfile:
         outfile.write(json_object_result)
-
-print('ok')
+        
+print(json_object_result)

@@ -13,15 +13,21 @@
 
 module.exports = {
     async postCorrect(req, res){
+        if (!req.file){
+            res.status(400).send({error : 'Empty file'})
+            return
+        }
+        
         const defaultpath = './public/img/exams/'
 
         var spawn = require("child_process").spawn;
     
         var process = spawn('python',["./src/scripts/script.py",
-                                defaultpath+req.file.filename] );
+                                        defaultpath+req.file.filename,
+                                        req.body.questoes] );
                                 
         process.stdout.on('data', function(data) {
-            res.send(data.toString());
+            res.status(200).send({success : JSON.parse(data.toString())});
         } )
     },
     async getCorrect(req, res){

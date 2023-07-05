@@ -28,7 +28,10 @@ module.exports = {
     },
 
     async getHomeCriar(req, res) {
-        res.render('HomeCriar')
+        if (req.session.edv)
+        {
+            res.render('HomeCriar')
+        } else res.redirect('/')
     },
 
     async postHomeCol(req, res) {

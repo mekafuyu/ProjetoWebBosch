@@ -18,6 +18,6 @@ routes
     .get('/AddCol', cadastro.colaborador).post('/AddCol', cadastro.colaboradorInsert)
     .get('/AddProc', cadastro.processo).post('/AddProc', multer(config).single('candidatos'), cadastro.processoInsert)
 
-    .get('/Corrigir', corrigir.getCorrect).post('/Corrigir', multer(config).single('gabarito'), corrigir.postCorrect)
+    .get('/Corrigir', corrigir.getCorrect).post('/Corrigir/:IDCand/:Prova', multer(config).single('prova'), corrigir.postCorrect)
 
 module.exports = routes;
