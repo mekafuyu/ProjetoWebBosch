@@ -3,7 +3,7 @@ const database = require('../config/db');
 
 const colaborador = database.define('Colaborador', {
     EDV: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
         primaryKey: true
     },

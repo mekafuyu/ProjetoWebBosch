@@ -30,25 +30,6 @@ app.set('view engine', 'ejs');
 
 //criptografia
 
-const users = []
-
-app.get('/LoginCol', (req,res) => {
-    res.json(users)
-})
-
-app.post('/LoginCol', async (req,res) => {
-    try{
-        const hashedpass = await bcrypt.hash(req.body.password,10); //criptografias diferentes para a mesma senha
-        const user = { EDV: req.body.edv, Senha: hashedpass};
-        users.push(user);
-        res.status(201).send();
-    } 
-    catch{
-        res.status(500).send();
-    }
-})
-
-
 app.use(routes);
 app.listen(process.env.APP_PORT, () => console.log(`Acesse: http://localhost:${process.env.APP_PORT}/`));
 

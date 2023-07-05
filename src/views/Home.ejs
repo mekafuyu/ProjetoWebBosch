@@ -94,17 +94,60 @@
                   </label>
                   <div class="senhasDesign">
                     <input class="form-control mx-auto" type="password" id="senha" name="senha">
-                      <i class="bi bi-eye" ></i>
+                    <i class="bi bi-eye"></i>
                   </div>
                 </div>
-
-
                 <div class="col-6 my-5 mx-auto">
                   <input type="button" class="btn btn-warning mx-auto btn-lg" value="Entrar" id="entrar">
                 </div>
               </form>
+              
+              <div class="modal-footer border-0">
+              <div class="forgot">
+                <a data-bs-toggle="modal" data-bs-target="#JanelaModalTrocaSenha">Esqueci minha Senha</a>
+              </div>
+              </div>
 
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div id="JanelaModalTrocaSenha" class="modal fade">
+        <div class="modal-dialog border-rounded">
+          <div class="modal-content strongbg">
+  
+            <div class="modal-header border-0">
+              <button type="button" class="btn btn-close " data-bs-dismiss="modal"></button>
+            </div>
+  
+            <div class="modal-body rounded">
+              <h5 class="text-center mx-auto">Esqueci Minha Senha</h5>
+  
+              <form action="/AddCol" method="post">
+  
+                <div class="col-6 mt-5 mx-auto">
+                  <label for="edv" class="form-label text-center">
+                    <h5>Código de Autenticação
+
+                    </h5>
+                  </label>
+                  <input class="form-control mx-auto" type="text" id="edv" name="edv">
+                </div>
+  
+                <div class="col-6 mt-5 mx-auto">
+                  <label for="senha" class="form-label text-center">
+                    <h5>Nova Senha</h5>
+                  </label>
+                  <input class="form-control mx-auto" type="text" id="senha" name="senha">
+                </div>
+  
+                <div class="col-6 my-5 mx-auto">
+                  <input type="submit" class="btn btn-warning mx-auto btn-lg" value="Atualizar">
+                </div>
+              </form>
+  
+  
             </div>
           </div>
         </div>

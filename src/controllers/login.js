@@ -1,6 +1,8 @@
 const colaborador = require('../model/colaborador')
 const candidato = require('../model/candidato')
 const processo = require('../model/processo')
+const crypt = require('../config/crypt')
+
 
 // const edv = '1'
 // const senha = '1'
@@ -12,15 +14,15 @@ module.exports = {
         res.render('LoginCand')
     },
 
-    async loginCand(req, res){
+    async loginCand(req, res) {
         const IDCandidato = Number(req.body.IDCandidato);
 
-        const processocand = await candidato.findByPk(IDCandidato,{
+        const processocand = await candidato.findByPk(IDCandidato, {
             raw: true,
             attributes: ['IDProcesso']
         })
 
-        if (!processocand){
+        if (!processocand) {
             res.redirect('/LoginCand');
             return;
         }
@@ -28,20 +30,21 @@ module.exports = {
 
         const processos = await processo.findAll({
             raw: true,
-            attributes: ['IDProcesso','Nome', 'Etapa', 'Situacao'],
+            attributes: ['IDProcesso', 'Nome', 'Etapa', 'Situacao'],
             where: { IDProcesso: 1 }
         });
 
         res.redirect('/HomeCand')
     },
 
-    async loginCol(req, res){
+    async loginCol(req, res) {
         const dados = req.body;
         dados.edv = Number(dados.edv)
         console.log(dados)
+        const algorith = 'aes-256-ctr'
 
-        if(isNaN(dados.edv)){
-            res.status(401).send({error : 'Login invalido'})
+        if (isNaN(dados.edv)) {
+            res.status(401).send({ error: 'Login invalido' })
             return
         }
 
@@ -49,17 +52,18 @@ module.exports = {
             raw: true
         })
 
-        if(!login){
-            res.status(401).send({error : 'Login invalido'})
+        if (!login) {
+            res.status(401).send({ error: 'Login invalido' })
             return
         }
-
-        if (dados.edv == login.EDV && dados.senha == login.Senha) {
+       
+        if (dados.edv == login.EDV && dados.senha == await crypt.decrypt(login.Senha)) {
             req.session.edv = dados.edv;
-            res.status(200).send({success : 'Login valido'})
+            res.status(200).send({ success: 'Login valido' })
         }
+
         else {
-            res.status(401).send({error : 'Login invalido'})
+            res.status(401).send({ error: 'Login invalido' })
             return
         }
     }

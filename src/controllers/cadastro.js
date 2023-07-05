@@ -1,5 +1,7 @@
 const colaborador = require('../model/colaborador');
 const processo = require('../model/processo');
+const crypt = require('../config/crypt')
+
 
 module.exports = {
 
@@ -12,14 +14,19 @@ module.exports = {
     },
 
     async colaboradorInsert(req, res) {
-        if (req.session.edv) {
+
+       
+
+        // if (req.session.edv) {
             const dados = req.body;
+            const password = dados.senha;
+
 
             await colaborador.create({
                 EDV: dados.edv,
-                Senha: dados.senha
+                Senha: await crypt.crypt(password)
             });
-        }
+        // }
         res.redirect('/');
     },
 

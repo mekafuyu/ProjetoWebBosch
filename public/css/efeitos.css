@@ -94,6 +94,14 @@ input[type="checkbox"]{
     color: white;
 }
 
+.dark .forgot a{
+    color: white;
+}
+
+.dark .forgot a:hover{
+    color:rgb(84, 184, 255);
+}
+
 .dark #footerContent{
     background-color: rgb(32, 32, 46);
 }
