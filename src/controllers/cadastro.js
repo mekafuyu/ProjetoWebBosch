@@ -1,6 +1,7 @@
 const colaborador = require('../model/colaborador');
 const processo = require('../model/processo');
 const crypt = require('../config/crypt')
+const valid = require('../config/validCpf')
 
 
 module.exports = {
@@ -15,16 +16,25 @@ module.exports = {
 
     async colaboradorInsert(req, res) {
 
-       
-
         // if (req.session.edv) {
             const dados = req.body;
             const password = dados.senha;
+            const cpf = dados.cpf;
 
+            if (await valid.cpfWithoutLetters(cpf)){
+                res.status('400').send({error : 'CPF inserido é inválidoajajaja!'})
+                return
+            }
+
+            if (await valid.validator(cpf)){
+                res.status('400').send({error : 'CPF inserido é inválidokkkk!'})
+                return
+            }
 
             await colaborador.create({
                 EDV: dados.edv,
-                Senha: await crypt.crypt(password)
+                Senha: await crypt.crypt(password),
+                CPF: cpf
             });
         // }
         res.redirect('/');

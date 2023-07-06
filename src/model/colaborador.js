@@ -11,6 +11,10 @@ const colaborador = database.define('Colaborador', {
         type: Sequelize.STRING(16),
         allowNull: false
     },
+    CPF: {
+        type: Sequelize.STRING(14),
+        allowNull: false
+    }
 },
 {
     freezeTableName: true
