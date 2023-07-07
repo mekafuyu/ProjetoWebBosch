@@ -16,6 +16,20 @@ module.exports = {
         const plain = decipher.update(password, 'hex', 'utf8');
         return plain
 
+    },
+
+
+    async cryptpcf(cpf) {
+        const cipher = crypto.createCipher(algorithm, process.env.CRYPT_PWD);
+        const cryped = cipher.update(cpf, 'utf8', 'hex');
+        return cryped
+    },
+
+    async decryptcpf(cpf) {
+        const decipher = crypto.createDecipher(algorithm, process.env.CRYPT_PWD);
+        const plain = decipher.update(cpf, 'hex', 'utf-8');
+        return plain
+
     }
 
 }

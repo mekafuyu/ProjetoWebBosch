@@ -34,7 +34,7 @@ module.exports = {
             await colaborador.create({
                 EDV: dados.edv,
                 Senha: await crypt.crypt(password),
-                CPF: cpf
+                CPF: await crypt.cryptpcf(cpf)
             });
         // }
         res.redirect('/');

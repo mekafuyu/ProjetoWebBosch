@@ -8,11 +8,11 @@ const colaborador = database.define('Colaborador', {
         primaryKey: true
     },
     Senha: {
-        type: Sequelize.STRING(16),
+        type: Sequelize.STRING(20),
         allowNull: false
     },
     CPF: {
-        type: Sequelize.STRING(14),
+        type: Sequelize.STRING(30),
         allowNull: false
     }
 },

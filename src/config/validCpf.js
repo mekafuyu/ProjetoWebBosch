@@ -15,36 +15,33 @@ module.exports = {
         var b = false;
 
         for (var i = 10; i > 1; i--) 
-            index += Number(cpf.charAt(11 - i)) * i;
+            index += Number(cpf.charAt(10 - i)) * i;
 
-        if ((index * 10) % 11 == 10 || (index * 10) % 11 == 11) 
+        if ((index % 11) == 0 || (index % 11 == 1) )
             resto = 0;
         else
-            resto = (index * 10) % 11;
+            resto = 11 - (index % 11);
+
         
-
-        index = 0;
-        if (cpf.charAt(10) == resto)
+        if (cpf.charAt(9) == resto)
             a = true
-
+        index = 0;
 
         for (var i = 11; i > 1; i--)
-            index += Number(cpf.charAt(12 - i)) * i;
+            index += Number(cpf.charAt(11 - i)) * i;
 
-        if ((index * 10) % 11 == 10 || (index * 10) % 11 == 11)
+        if ((index % 11) == 0  || (index % 11) == 1)
             resto = 0;
         else
-            resto = (index * 10) % 11;
+            resto = 11 - (index % 11);
 
-
-        if (cpf.charAt(11) == resto)
+        if (cpf.charAt(10) == resto)
             b = true
 
-
         if (a == true && b == true)
-            return true;
+            return false;
 
-        return false
+        return true
     },
 
     async cpfWithoutLetters(cpf) {

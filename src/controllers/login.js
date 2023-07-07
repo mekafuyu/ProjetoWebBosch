@@ -41,7 +41,6 @@ module.exports = {
         const dados = req.body;
         dados.edv = Number(dados.edv)
         console.log(dados)
-        const algorith = 'aes-256-ctr'
 
         if (isNaN(dados.edv)) {
             res.status(401).send({ error: 'Login invalido' })
