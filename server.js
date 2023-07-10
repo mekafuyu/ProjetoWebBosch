@@ -30,4 +30,4 @@ app.set('view engine', 'ejs');
 
 
 app.use(routes);
-app.listen(process.env.APP_PORT, () => console.log(`Acesse: http://localhost:${process.env.APP_PORT}/`));
+app.listen(process.env.APP_PORT, () => console.log(`http://localhost:${process.env.APP_PORT}/\n`));

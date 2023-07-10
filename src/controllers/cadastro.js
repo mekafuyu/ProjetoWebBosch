@@ -2,7 +2,6 @@ const colaborador = require('../model/colaborador');
 const processo = require('../model/processo');
 const candidato = require('../model/candidato');
 var XLSX = require("xlsx");
-const { json } = require('sequelize');
 // const xlsx = require('xlsx')
 
 module.exports = {
@@ -51,12 +50,10 @@ module.exports = {
                 let jsonData = XLSX.utils.sheet_to_json(
                     workbook.Sheets[sheet_name_list[0]]
                 );
-                if (jsonData.length === 0 || jsonData[0].Nome) {
-                    return res.status(400).json({
-                        success: false,
-                        message: "xml sheet has no data",
-                    });
-                }
+                
+                if (jsonData.length === 0 || !jsonData[0].Nome) {
+                    return res.status(400).send({ error: "Arquivo não possui informações necessárias" });
+                } else
                 for (const candidatos of jsonData){
                     await candidato.create({
                         Nome: candidatos.Nome,
