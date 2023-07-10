@@ -19,6 +19,7 @@ module.exports = {
         // if (req.session.edv) {
             const dados = req.body;
             const password = dados.senha;
+            console.log(password)
             const cpf = dados.cpf;
 
             if (await valid.cpfWithoutLetters(cpf)){

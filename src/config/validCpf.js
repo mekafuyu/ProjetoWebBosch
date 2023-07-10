@@ -3,12 +3,6 @@ module.exports = {
 
     async validator(cpf) {
 
-        // Object.defineProperty(this, 'cpfLimpo', {
-        //     get: function () {
-        //         return cpf.replace(/\D+/g, ''); // é utilizado o get apenas para limpar o número ao receber
-        //     }
-        // });
-
         var index = 0;
         var resto = 0;
         var a = false;

@@ -2,27 +2,33 @@ const colaborador = require('../model/colaborador')
 const crypt = require('../config/crypt')
 
 module.exports = {
-    async changepwd(req, res){
+    async changepwd(req, res) {
         const dados = req.body
-        const password = dados.senha
-        const cpf = dados.cpf
+        const cpf = dados.Cpf
 
-        const repassword = await colaborador.findAll(dados.cpf, {
+        if (isNaN(dados.edv2)) {
+            res.status(401).send({ error: 'tá nulokkkk' })
+            return
+        }
+
+        const repassword = await colaborador.findByPk(dados.edv2, {
             raw: true
         })
 
-        if (!repassword) {
-            res.status(401).send({ error: 'invalido' })
+        if (dados.newsenha != dados.confirmnewsenha) {
+            res.status(401).send({ success: 'invalidokkkkkkkk' })
             return
         }
-
-        if (dados.cpf == await crypt.decrypt(repassword.cpf)){
-            res.status(200).send({ success: 'valido' })
+      
+        if (dados.edv2 == repassword.EDV && cpf == await crypt.decryptcpf(repassword.CPF)) {
+            await colaborador.update({
+                Senha: await crypt.crypt(dados.confirmnewsenha)
+            })
+            res.redirect('/');
+          
         }
-
         else
             res.status(401).send({ success: 'invalido' })
-            return
+}
 
-    }
 }

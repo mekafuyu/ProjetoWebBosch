@@ -101,11 +101,11 @@
                   <input type="button" class="btn btn-warning mx-auto btn-lg" value="Entrar" id="entrar">
                 </div>
               </form>
-              
+
               <div class="modal-footer border-0">
-              <div class="forgot">
-                <a data-bs-toggle="modal" data-bs-target="#JanelaModalTrocaSenha">Esqueci minha Senha</a>
-              </div>
+                <div class="forgot">
+                  <a data-bs-toggle="modal" data-bs-target="#JanelaModalTrocaSenha">Esqueci minha Senha</a>
+                </div>
               </div>
 
             </div>
@@ -116,45 +116,50 @@
       <div id="JanelaModalTrocaSenha" class="modal fade">
         <div class="modal-dialog border-rounded">
           <div class="modal-content strongbg">
-  
+
             <div class="modal-header border-0">
               <button type="button" class="btn btn-close " data-bs-dismiss="modal"></button>
             </div>
-  
+
             <div class="modal-body rounded">
               <h5 class="text-center mx-auto">Esqueci Minha Senha</h5>
-  
-              <form action="/AddCol" method="post">
-  
-                <div class="col-6 mt-5 mx-auto">
-                  <label for="edv" class="form-label text-center">
-                    <h5>CPF Cadastrado do Colaborador
 
-                    </h5>
-                  </label>
-                  <input class="form-control mx-auto" type="text" id="edv" name="edv">
-                </div>
-  
+              <form action="/changepwd" method="post">
+
                 <div class="col-6 mt-5 mx-auto">
-                  <label for="senha" class="form-label text-center">
+                  <label for="edv2" class="form-label text-center">
+                    <h5>EDV Cadastrado do Colaborador</h5>
+                  </label>
+                  <input class="form-control mx-auto" type="text" id="edv2" name="edv2">
+                </div>
+
+                <div class="col-6 mt-5 mx-auto">
+                  <label for="Cpf" class="form-label text-center">
+                    <h5>CPF Cadastrado do Colaborador</h5>
+                  </label>
+                  <input class="form-control mx-auto" type="text" id="Cpf" name="Cpf">
+                </div>
+
+                <div class="col-6 mt-5 mx-auto">
+                  <label for="newsenha" class="form-label text-center">
                     <h5>Nova Senha</h5>
                   </label>
-                  <input class="form-control mx-auto" type="password" id="senha" name="senha">
+                  <input class="form-control mx-auto" type="password" id="newsenha" name="newsenha">
                 </div>
 
                 <div class="col-6 mt-5 mx-auto">
-                  <label for="senha" class="form-label text-center">
+                  <label for="confirmnewsenha" class="form-label text-center">
                     <h5>Confirmação da Nova Senha</h5>
                   </label>
-                  <input class="form-control mx-auto" type="password" id="senha" name="senha">
+                  <input class="form-control mx-auto" type="password" id="confirmnewsenha" name="confirmnewsenha">
                 </div>
 
                 <div class="col-6 my-5 mx-auto">
                   <input type="submit" class="btn btn-warning mx-auto btn-lg" value="Atualizar">
                 </div>
               </form>
-  
-  
+
+
             </div>
           </div>
         </div>
