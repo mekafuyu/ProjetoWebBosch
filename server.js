@@ -2,7 +2,10 @@ const express = require('express');
 const routes = require('./routes');
 const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
+const crypt = require('./src/config/crypt')
+const colaborador = require('./src/model/colaborador')
 require('dotenv').config()
+
 
 const app = express();
 app.use(express.json());
@@ -23,10 +26,18 @@ app.use(sessions({
 // cookie parser middleware
 app.use(cookieParser());
 
-
 //ejs
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use(routes);
+
+if(await colaborador.count() < 1){
+    await colaborador.create({
+        EDV: process.env.ADMIN_EDV,
+        Senha: crypt.crypt(process.env.ADMIN_PWD),
+        CPF: crypt.crypt(process.env.ADMIN_CPF)
+    });
+};
+
 app.listen(process.env.APP_PORT, () => console.log(`http://localhost:${process.env.APP_PORT}/\n`));
