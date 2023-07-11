@@ -25,7 +25,9 @@ $(' #correct ').on('submit', (e) => {
         contentType: false,
         success: (data) => {
             console.log(data)
+            console.log('#'+data.cand)
             $(' #Loading ').modal('hide');
+            $('#'+data.cand).val(data.nota)
         },
         error: (data) => {
             $(' #Loading ').modal('hide');
@@ -33,7 +35,7 @@ $(' #correct ').on('submit', (e) => {
     });
 })
 
-$(' #setgab ').on('click', (e) => {
+$(' #questoes ').on('input', (e) => {
     $(' #Gabarito' ).empty();
     $(' #Gabarito' ).append(`<tr>
     <th scope="col" class="strongbg text-center">Questão</th>
@@ -52,11 +54,10 @@ $(' #setgab ').on('click', (e) => {
 </tr>`)
         $(' #Gabarito' ).append(newColumn)
     };
-    $(' #modalGabarito ').modal('show');
+   
 })
 
-// $(' #questoes ').on('focusout', (e) => [
-//     console.log($(' #questoes ').val())
-    
-// ])
+$(' #setgab ').on('click', (e) => {
+    $(' #modalGabarito ').modal('show');
+});
 

@@ -52,7 +52,9 @@
 
   <div id="Loading" class="modal">
     <div class="modal-dialog modal-dialog-centered border-rounded">
-      <div class="lds-default mx-auto"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="lds-default mx-auto">
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
     </div>
   </div>
 
@@ -82,7 +84,8 @@
       <tr>
         <th scope="col" class="strongbg text-center">Id</th>
         <th scope="col" class="strongbg text-center">Nome</th>
-        <th scope="col" class="strongbg text-center">Nota 1 | Questões: <input class="col-1" type="number" id="questoes"> <input class="btn btn-warning py-0" type="button" id="setgab" value="Gabarito"></th>
+        <th scope="col" class="strongbg text-center">Nota</th>
+        <th scope="col" class="strongbg text-center">Questões: <input class="col-1" type="number" id="questoes"> <input class="btn btn-warning py-0" type="button" id="setgab" value="Gabarito"></th>
         <!-- <th scope="col" class="strongbg text-center">Nota 2</th>
         <th scope="col" class="strongbg text-center">Nota 3</th>
         <th scope="col" class="strongbg text-center">Nota 4</th> -->
@@ -91,6 +94,9 @@
         <tr>
           <td class="lightbg text-center"><%= candidatos[i].IDCandidato %></td>
           <td class="lightbg text-center"><%= candidatos[i].Nome %></td>
+          <td class="lightbg text-center">
+            <input id="<%= candidatos[i].IDCandidato %>" class="text-center" type="number" disabled value="<%= candidatos[i].Nota1 %>">
+          </td>
           <td class="lightbg text-center">
             <!-- <%= candidatos[i].Nota1 %> -->
             <form id="correct" method="post" action="/Corrigir/<%= candidatos[i].IDCandidato %>/1" enctype="multipart/form-data">

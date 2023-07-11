@@ -16,22 +16,22 @@ const candidato = database.define('Candidato', {
     },
 
     Nota1: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false
     },
 
     Nota2: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false
     },
 
     Nota3: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false
     },
 
     Nota4: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false
     },
 },

@@ -6,7 +6,7 @@ const routes = express.Router();
 const login = require('./src/controllers/login')
 const cadastro = require('./src/controllers/cadastro');
 const home = require('./src/controllers/home');
-const corrigir =  require('./src/controllers/pythoncaller');
+const corrigir =  require('./src/controllers/corrigir');
 
 
 routes
