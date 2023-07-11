@@ -128,18 +128,13 @@
 
               <h3 class="text-center mx-auto">Candidato, faça seu Login</h3>
 
-              <form action="/LoginCand" method="post">
+              <form action="/Cand" method="post">
 
                 <div class="col-6 mt-5 mx-auto">
                   <label for="IDCandidato" class="form-label text-center">
                     <h5>ID Candidato</h5>
                   </label>
-                  <input class="form-control mx-auto" type="text" id="IDCandidato" name="IDCandidato" pattern="[0-9]+" required oninvalid="
-                    if (this.validity.valueMissing){
-                      setCustomValidity('Preencha o campo')
-                    } else if (this.validity.patternMismatch){
-                      setCustomValidity(this.validity.patternMismatch)
-                    } else this.forms.submit()" oninvalid="this.foms.submit()">
+                  <input class="form-control mx-auto" type="text" id="IDCandidato" name="IDCandidato" pattern="[0-9]+" required">
                 </div>
 
                 <div class="col-6 my-5 mx-auto">

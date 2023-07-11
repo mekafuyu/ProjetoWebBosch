@@ -13,10 +13,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/efeitos.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/efeitos.css">
 
-  <link rel="shortcut icon" href="img/bosch2.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../img/bosch2.ico" type="image/x-icon">
 
   <title>Página Inicial Candidato</title>
 </head>
@@ -27,7 +27,7 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow mb-5">
       <div class="container-fluid">
-        <img src="img/bosch.ico" alt="IconeBosch" width="165px" height="90px" id="IconeBosch">
+        <img src="../img/bosch.ico" alt="IconeBosch" width="165px" height="90px" id="IconeBosch">
         <a class="navbar-brand" href="/" id="title">
           <span2>Processos Seletivos</span2>
         </a>
@@ -56,10 +56,31 @@
     </nav>
   </header>
 
+  <div class="text-center">
+    <h1>Candidato: <%= candidatos.Nome  %></h1>
+    <h5>Processo Seletivo</h5> <!-- indicar atraves de ejs qual é o processo  -->
+    
+
+    <table class="table">
+      <tr>
+        <th scope="col" class="strongbg text-center">Id</th>
+        <th scope="col" class="strongbg text-center">Nota1</th>
+        <th scope="col" class="strongbg text-center">Nota2</th>
+        <th scope="col" class="strongbg text-center">Nota3</th>
+        <th scope="col" class="strongbg text-center">Nota4</th>
+      </tr>
+      <tr>
+        <td class="lightbg text-center"><%= candidatos.IDCandidato %></td>
+        <td class="lightbg text-center"><%= candidatos.Nota1 %></td>
+        <td class="lightbg text-center"><%= candidatos.Nota2 %></td>
+        <td class="lightbg text-center"><%= candidatos.Nota3 %></td>
+        <td class="lightbg text-center"><%= candidatos.Nota4 %></td>
+      </tr>
+    </table>
+  </div>
 
 
-
-  <script src="js/efeitos.js" defer></script>
+  <script src="../js/efeitos.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

@@ -12,7 +12,7 @@ const corrigir =  require('./src/controllers/corrigir');
 routes
     .get('/', home.getHome).post('/',home.getHome)
     .post('/LoginCol', login.loginCol).get('/HomeCriar', home.getHomeCriar).get('/Logout', login.logout)
-    .post('/LoginCand', login.loginCand).get('/HomeCand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
+    .get('/Cand/:IDCand', home.getHomeCand).post('/Cand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
     .get('/Proc/:IDProcesso', home.viewProc)
 
     .get('/AddCol', cadastro.colaborador).post('/AddCol', cadastro.colaboradorInsert)

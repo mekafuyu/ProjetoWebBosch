@@ -46,7 +46,20 @@ module.exports = {
 
 
     async getHomeCand(req, res) {
-        res.render('HomeCand')
+        let candparam = req.params.IDCand;
+        let candbody = req.body.IDCandidato;
+        if(!candparam || candbody)
+            return res.redirect('/Cand/'+ candbody)
+
+        const candidatos = await candidato.findByPk(Number(candparam), {
+            raw: true,
+            attributes: ['IDCandidato', 'Nome', 'Nota1', 'Nota2', 'Nota3', 'Nota4']
+        });
+
+        if(!candidatos)
+            return res.redirect('/')
+
+        res.render('HomeCand', { candidatos } )
     },
 
     async postHomeCand(req, res) {
