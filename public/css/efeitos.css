@@ -150,6 +150,7 @@ input[type="checkbox"]{
     font-weight: 800;
     color: rgb(255, 255, 255);
 }
+
 .dark .alerta button{
     font-weight: 800;
     color: rgb(255, 0, 0);
@@ -158,6 +159,21 @@ input[type="checkbox"]{
 .dark .alerta{
     font-weight: 800;
     border-color: rgb(255, 0, 0);
+}
+
+.dark .alerta-bom span{
+    font-weight: 800;
+    color: rgb(255, 255, 255);
+}
+
+.dark .alerta-bom button{
+    font-weight: 800;
+    color: rgb(0, 255, 0);
+    border-color: rgb(0, 255, 0);
+}
+.dark .alerta-bom{
+    font-weight: 800;
+    border-color: rgb(0, 255, 0);
 }
 
 

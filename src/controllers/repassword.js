@@ -6,8 +6,9 @@ module.exports = {
         const dados = req.body
         const cpf = dados.Cpf
 
+        console.log(dados.edv2)
         if (isNaN(dados.edv2)) {
-            res.status(401).send({ error: 'tá nulokkkk' })
+            res.status(401).send({ error: 'Nulo' })
             return
         }
 
@@ -16,19 +17,21 @@ module.exports = {
         })
 
         if (dados.newsenha != dados.confirmnewsenha) {
-            res.status(401).send({ success: 'invalidokkkkkkkk' })
+            res.status(401).send({ error: 'Dados invalidos' })
             return
         }
-      
-        if (dados.edv2 == repassword.EDV && cpf == await crypt.decryptcpf(repassword.CPF)) {
+
+        const cpfdb = await crypt.decrypt(repassword.CPF)
+
+        if (dados.edv2.trim() == repassword.EDV.trim() && cpf.trim() == cpfdb.trim()) {
             await colaborador.update({
                 Senha: await crypt.crypt(dados.confirmnewsenha)
-            })
-            res.redirect('/');
-          
+            }, { where: { EDV: dados.edv2 } })
+            res.status(200).send({ success: 'valido' });
+
         }
         else
-            res.status(401).send({ success: 'invalido' })
-}
+            res.status(401).send({ error: 'Invalido' })
+    }
 
 }

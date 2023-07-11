@@ -48,8 +48,38 @@
     width: 100%;
 }
 
+.alerta-bom{
+    opacity: 1;
+    display: flex;
+    background-color: rgba(27, 145, 23, 0.404);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(15, 68, 13, 0.404);
+    border-radius: 5px;
+    padding: 5px;
+    width: auto;
+    transition: 200ms;
+    /* justify-content: center; */
+}
+.alerta-bom button{
+    border-radius: 20%;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(14, 70, 12, 0.404);
+    width: 6%;
+}
+.alerta-bom button:hover{
+    background-color: rgba(27, 145, 23, 0.404);
+    transition: 200ms;
+}
+.alerta-bom span{
+    width: 100%;
+}
+
 span{
-    color: red;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
 }
 
 span2{

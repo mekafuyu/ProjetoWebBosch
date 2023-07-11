@@ -23,19 +23,19 @@ module.exports = {
             const cpf = dados.cpf;
 
             if (await valid.cpfWithoutLetters(cpf)){
-                res.status('400').send({error : 'CPF inserido é inválidoajajaja!'})
+                res.status(401).send({error : 'CPF inválido'})
                 return
             }
 
             if (await valid.validator(cpf)){
-                res.status('400').send({error : 'CPF inserido é inválidokkkk!'})
+                res.status(401).send({error : 'CPF inválido'})
                 return
             }
 
             await colaborador.create({
                 EDV: dados.edv,
                 Senha: await crypt.crypt(password),
-                CPF: await crypt.cryptpcf(cpf)
+                CPF: await crypt.crypt(cpf)
             });
         // }
         res.redirect('/');

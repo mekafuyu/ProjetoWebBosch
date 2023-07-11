@@ -12,7 +12,7 @@ const repassword = require('./src/controllers/repassword')
 
 routes
     .get('/', home.getHome).post('/',home.getHome)
-    .post('/changepwd', repassword.changepwd)
+    .post('/ChangePwd', repassword.changepwd)
     
     .post('/LoginCol', login.loginCol).get('/HomeCriar', home.getHomeCriar).get('/Logout', login.logout)
     .post('/LoginCand', login.loginCand).get('/HomeCand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
