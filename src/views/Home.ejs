@@ -94,17 +94,80 @@
                   </label>
                   <div class="senhasDesign">
                     <input class="form-control mx-auto" type="password" id="senha" name="senha">
-                      <i class="bi bi-eye" ></i>
+                    <i class="bi bi-eye"></i>
                   </div>
                 </div>
-
-
                 <div class="col-6 my-5 mx-auto">
                   <input type="button" class="btn btn-warning mx-auto btn-lg" value="Entrar" id="entrar">
                 </div>
               </form>
 
+              <div class="modal-footer border-0">
+                <div class="forgot">
+                  <a data-bs-toggle="modal" data-bs-target="#JanelaModalTrocaSenha">Esqueci minha Senha</a>
+                </div>
+              </div>
 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="JanelaModalTrocaSenha" class="modal fade">
+        <div class="modal-dialog border-rounded">
+          <div class="modal-content strongbg">
+
+            <div class="modal-header border-0">
+              <button type="button" class="btn btn-close " data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body rounded">
+              <h3 class="text-center mx-auto">Esqueci Minha Senha</h3>
+
+              <div class="hide alerta" id="error-update">
+                <span>Credenciais Incorretas</span>
+                <button id="alertabutton">&times;</button>
+              </div>
+
+              <form action="/ChangePwd" method="post" id="change-login">
+
+                <div class="col-6  mx-auto">
+                  <label for="edv2" class="form-label text-center">
+                    <h5>EDV Cadastrado do Colaborador</h5>
+                  </label>
+                  <input class="form-control mx-auto fieldre" type="text" id="edv2" name="edv2">
+                </div>
+
+                <div class="col-6 mt-5 mx-auto">
+                  <label for="Cpf" class="form-label text-center">
+                    <h5>CPF Cadastrado do Colaborador</h5>
+                  </label>
+                  <input class="form-control mx-auto fieldre" type="text" id="Cpf" name="Cpf">
+                </div>
+
+                <div class="col-6 mt-5 mx-auto">
+                  <label for="newsenha" class="form-label text-center">
+                    <h5>Nova Senha</h5>
+                  </label>
+                  <input class="form-control mx-auto fieldre" type="password" id="newsenha" name="newsenha">
+                </div>
+
+                <div class="col-6 mt-5 mx-auto">
+                  <label for="confirmnewsenha" class="form-label text-center">
+                    <h5>Confirmação da Nova Senha</h5>
+                  </label>
+                  <input class="form-control mx-auto fieldre" type="password" id="confirmnewsenha" name="confirmnewsenha">
+                </div>
+
+                <div class="hide alerta-bom mt-2" id="success-update">
+                  <span>Senha modificada com Sucesso!</span>
+                  <button id="alertabutton">&times;</button>
+                </div>
+
+                <div class="col-6 mt-2 mx-auto">
+                  <input type="button" id="atualizar" class="btn btn-warning mx-auto btn-lg" value="Atualizar">
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -182,11 +245,11 @@
     </div>
   </footer>
 
-
   <script src="js/password.js"></script>
   <script src="js/efeitos.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
   <script src="js/jquery.js"></script>
+  <script src="js/jquery_repwd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 </body>

@@ -28,6 +28,5 @@ app.use(cookieParser());
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
-
 app.use(routes);
 app.listen(process.env.APP_PORT, () => console.log(`http://localhost:${process.env.APP_PORT}/\n`));

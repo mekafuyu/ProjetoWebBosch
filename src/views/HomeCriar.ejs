@@ -71,6 +71,11 @@
           <div class="modal-body rounded">
             <h5 class="text-center mx-auto">Cadastrar novo colaborador</h5>
 
+            <div class="hide alerta" id="error">
+              <span>Credenciais inseridas incorretas</span>
+              <button id="alertabutton">&times;</button>
+            </div>
+
             <form action="/AddCol" method="post">
 
               <div class="col-6 mt-5 mx-auto">
@@ -78,6 +83,13 @@
                   <h5>EDV</h5>
                 </label>
                 <input class="form-control mx-auto" type="text" id="edv" name="edv">
+              </div>
+
+              <div class="col-6 mt-5 mx-auto">
+                <label for="cpf" class="form-label text-center">
+                  <h5>CPF</h5>
+                </label>
+                <input class="form-control mx-auto" type="text" id="cpf" name="cpf">
               </div>
 
               <div class="col-6 mt-5 mx-auto">

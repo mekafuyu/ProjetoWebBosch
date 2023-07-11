@@ -48,8 +48,38 @@
     width: 100%;
 }
 
+.alerta-bom{
+    opacity: 1;
+    display: flex;
+    background-color: rgba(27, 145, 23, 0.404);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(15, 68, 13, 0.404);
+    border-radius: 5px;
+    padding: 5px;
+    width: auto;
+    transition: 200ms;
+    /* justify-content: center; */
+}
+.alerta-bom button{
+    border-radius: 20%;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(14, 70, 12, 0.404);
+    width: 6%;
+}
+.alerta-bom button:hover{
+    background-color: rgba(27, 145, 23, 0.404);
+    transition: 200ms;
+}
+.alerta-bom span{
+    width: 100%;
+}
+
 span{
-    color: red;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
 }
 
 span2{
@@ -228,7 +258,7 @@ span3{
     position: absolute;
     cursor: pointer;
     color: #000000;
-    top: 57%;
+    top: 51%;
     right: 27%;
 }
 
@@ -236,10 +266,24 @@ span3{
     position: absolute;
     cursor: pointer;
 
-    top: 57%;
+    top: 51%;
     right: 27%;
     color: #000000;
 }
+
+.forgot a {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    transition: all .40s;
+    cursor: pointer;
+}
+
+.forgot a:hover {
+    color: rgb(84, 184, 255);
+}
+
+
 /* footer */
 
 footer{

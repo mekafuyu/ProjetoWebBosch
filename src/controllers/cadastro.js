@@ -1,8 +1,9 @@
+const XLSX = require("xlsx");
+const crypt = require('../config/crypt')
+const valid = require('../config/validCpf')
 const colaborador = require('../model/colaborador');
 const processo = require('../model/processo');
 const candidato = require('../model/candidato');
-var XLSX = require("xlsx");
-// const xlsx = require('xlsx')
 
 module.exports = {
 
@@ -15,12 +16,27 @@ module.exports = {
     },
 
     async colaboradorInsert(req, res) {
+
         if (req.session.edv) {
             const dados = req.body;
+            const password = dados.senha;
+            console.log(password)
+            const cpf = dados.cpf;
+
+            if (await valid.cpfWithoutLetters(cpf)){
+                res.status(401).send({error : 'CPF inválido'})
+                return
+            }
+
+            if (await valid.validator(cpf)){
+                res.status(401).send({error : 'CPF inválido'})
+                return
+            }
 
             await colaborador.create({
                 EDV: dados.edv,
-                Senha: dados.senha
+                Senha: await crypt.crypt(password),
+                CPF: await crypt.crypt(cpf)
             });
         }
         res.redirect('/');
