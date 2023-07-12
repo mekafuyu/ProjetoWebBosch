@@ -19,6 +19,8 @@
 
   <link rel="shortcut icon" href="../img/bosch2.ico" type="image/x-icon">
 
+  <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+
   <title>Processos</title>
 </head>
 
@@ -78,7 +80,13 @@
   <div class="text-center">
     <h1>Lista de Aprovados</h1>
     <h5>Processo Seletivo</h5> <!-- indicar atraves de ejs qual é o processo  -->
-    
+    <div id="cam">
+      <video id="webcam" autoplay playsinline width="640" height="480"></video>
+      <canvas id="canvas" ></canvas>
+      <audio id="snapSound" src="audio/snap.wav" preload="auto"></audio>
+      <button onclick="webcam.snap();saveasimg();">print</button>
+      <img id="imgweb" alt="blabla" src="">
+    </div>
 
     <table class="table">
       <tr>
@@ -113,6 +121,7 @@
   </div>
 
 
+  <script src="../js/webcam.js" defer></script>
   <script src="../js/efeitos.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
