@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
 const crypt = require('./src/config/crypt')
 const colaborador = require('./src/model/colaborador')
+const candidato = require('./src/model/candidato')
+const processo = require('./src/model/processo')
 require('dotenv').config()
 
 
@@ -32,12 +34,19 @@ app.set('view engine', 'ejs');
 
 app.use(routes);
 
-if(await colaborador.count() < 1){
+app.listen(process.env.APP_PORT, async () => {
+
+    await colaborador.sync();
+    await candidato.sync();
+    await processo.sync();
+
+    if(await colaborador.count() < 1){
     await colaborador.create({
         EDV: process.env.ADMIN_EDV,
-        Senha: crypt.crypt(process.env.ADMIN_PWD),
-        CPF: crypt.crypt(process.env.ADMIN_CPF)
-    });
-};
+        Senha: await crypt.crypt(process.env.ADMIN_PWD),
+        CPF: await crypt.crypt(process.env.ADMIN_CPF)
+        });
+    };
 
-app.listen(process.env.APP_PORT, () => console.log(`http://localhost:${process.env.APP_PORT}/\n`));
+    console.log(`\nhttp://localhost:${process.env.APP_PORT}/\n`)
+});
