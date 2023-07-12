@@ -99,6 +99,11 @@ span3{
     letter-spacing: 1px;
 }
 
+span4{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
 .detalhe {
     position: fixed;
     background: url(../img/rainbow.svg);
