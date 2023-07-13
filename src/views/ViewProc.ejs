@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/efeitos.css">
   <link rel="stylesheet" href="../css/loading.css">
+  <link rel="stylesheet" href="../css/cam.css">
 
   <link rel="shortcut icon" href="../img/bosch2.ico" type="image/x-icon">
 
@@ -81,8 +82,8 @@
     <h1>Lista de Aprovados</h1>
     <h5>Processo Seletivo</h5> <!-- indicar atraves de ejs qual é o processo  -->
     <div id="cam">
-      <video id="webcam" autoplay playsinline width="640" height="480"></video>
-      <canvas id="canvas" ></canvas>
+      <video id="webcam" autoplay playsinline width="144" height="256"></video>
+      <canvas id="canvas" class="d-none"></canvas>
       <audio id="snapSound" src="audio/snap.wav" preload="auto"></audio>
       <button onclick="webcam.snap();saveasimg();">print</button>
       <img id="imgweb" alt="blabla" src="">
@@ -111,10 +112,8 @@
               <input type="file" id="prova" name="prova">
               <input type="submit" value="enviar">
             </form>
+            <button class="print" value="<%= candidatos[i].IDCandidato %>">print</button>
           </td>
-          <!-- <td class="lightbg text-center"><%= candidatos[i].Nota2 %><form method="post" action="/Corrigir/<%= candidatos[i].IDCandidato %>/2"><input type="file" id="prova" name="prova"><input type="submit" value="enviar"></form></td>
-          <td class="lightbg text-center"><%= candidatos[i].Nota3 %><form method="post" action="/Corrigir/<%= candidatos[i].IDCandidato %>/3"><input type="file" id="prova" name="prova"><input type="submit" value="enviar"></form></td>
-          <td class="lightbg text-center"><%= candidatos[i].Nota4 %><form method="post" action="/Corrigir/<%= candidatos[i].IDCandidato %>/4"><input type="file" id="prova" name="prova"><input type="submit" value="enviar"></form></td> -->
         </tr>
       <% } %>
     </table>
