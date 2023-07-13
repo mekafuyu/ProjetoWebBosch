@@ -1,6 +1,7 @@
 const XLSX = require("xlsx");
 const crypt = require('../config/crypt')
 const valid = require('../config/validCpf')
+const pesize = require('../config/pe_size')
 const colaborador = require('../model/colaborador');
 const processo = require('../model/processo');
 const candidato = require('../model/candidato');
@@ -20,7 +21,6 @@ module.exports = {
         if (req.session.edv) {
             const dados = req.body;
             const password = dados.senha;
-            console.log(password)
             const cpf = dados.cpf;
 
             if (await valid.cpfWithoutLetters(cpf)){
@@ -29,7 +29,17 @@ module.exports = {
             }
 
             if (await valid.validator(cpf)){
-                res.status(401).send({error : 'CPF inválido'})
+                res.status(401).send({error : 'CPF inválido!'})
+                return
+            }
+
+            if (!(await pesize.requirementpwd(password))){
+                res.status(401).send({error : 'senha invalida kkkk'})
+                return
+            }
+
+            if (!(await pesize.edvnumber(dados.edv))){
+                res.status(401).send({error : 'edv invalido kkkk'})
                 return
             }
 
