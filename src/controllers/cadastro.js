@@ -23,6 +23,9 @@ module.exports = {
             const password = dados.senha;
             const cpf = dados.cpf;
 
+            if (isNaN(dados.edv || cpf))
+                res.status(401).send({error: 'Cadastro inválido'})
+
             if (await valid.cpfWithoutLetters(cpf)){
                 res.status(401).send({error : 'CPF inválido'})
                 return

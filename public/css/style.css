@@ -77,6 +77,12 @@
     width: 100%;
 }
 
+spanpremium{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: small;
+}
+
 span{
     color: rgb(0, 0, 0);
     font-weight: bold;
