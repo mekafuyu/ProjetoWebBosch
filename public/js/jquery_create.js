@@ -13,7 +13,8 @@ $(' #Cadastrar ').on('click', (e) => {
             senha: senha
         },
         success: (data) => {
-            $(' #addcol ').trigger('submit')
+            $('#addcol').modal('hide')
+            $(' #error-create ').addClass('hide');
         },
         error: (data) => {
             $(' #error-create ').removeClass('hide')
