@@ -81,12 +81,11 @@
   <div class="text-center">
     <h1>Lista de Aprovados</h1>
     <h5>Processo Seletivo</h5> <!-- indicar atraves de ejs qual é o processo  -->
-    <div id="cam">
-      <video id="webcam" autoplay playsinline width="144" height="256"></video>
+    <div id="cam" >
+      <video id="webcam" autoplay playsinline ></video>
       <canvas id="canvas" class="d-none"></canvas>
-      <audio id="snapSound" src="audio/snap.wav" preload="auto"></audio>
-      <button onclick="webcam.snap();saveasimg();">print</button>
-      <img id="imgweb" alt="blabla" src="">
+      <audio id="snapSound" src="../audio/shutter.wav" preload="auto"></audio>
+      <button id="escondecam">print</button>
     </div>
 
     <table class="table">
@@ -111,8 +110,8 @@
             <form id="correct" method="post" action="/Corrigir/<%= candidatos[i].IDCandidato %>/1" enctype="multipart/form-data">
               <input type="file" id="prova" name="prova">
               <input type="submit" value="enviar">
+              <button type="button" class="print" value="<%= candidatos[i].IDCandidato %>">print</button>
             </form>
-            <button class="print" value="<%= candidatos[i].IDCandidato %>">print</button>
           </td>
         </tr>
       <% } %>

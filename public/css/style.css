@@ -87,8 +87,8 @@ span2{
     font-weight: bold;
     background: rgb(255,0,0);
     background: linear-gradient(90deg, rgba(255,0,0,1) 20%, rgba(88,0,219,1) 44%, rgba(45,0,224,1) 76%, rgba(0,138,255,1) 100%);
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     letter-spacing: 1px;
 }

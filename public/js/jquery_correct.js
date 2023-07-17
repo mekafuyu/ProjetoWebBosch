@@ -1,9 +1,18 @@
-$(' #correct ').on('submit', (e) => {
+$(' #correct ').on('submit', async (e) => {
     e.preventDefault();
     $(' #Loading ').modal('show');
     // console.log(e.target.attributes.action.value)
     var formData = new FormData(e.target);
+
+    if ($(e.target).has(" #print ").length){
+        formData.set('prova',
+                      await (await fetch($(e.target).children(" #print ").attr('src'))).blob(),
+                      Date.now()+".jpeg")
+    }
+
     var Gabarito = $(' #FormGab ').serializeArray()
+
+
     var gabarito = {};
 
     for (var questao of Gabarito) {
@@ -61,3 +70,9 @@ $(' #setgab ').on('click', (e) => {
     $(' #modalGabarito ').modal('show');
 });
 
+$(' #escondecam ').on('click', (e) => {
+    var webcam = $(' #webcam ')
+    if (webcam.hasClass('d-none'))
+        webcam.removeClass('d-none')
+    else webcam.addClass('d-none')
+})
