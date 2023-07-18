@@ -20,7 +20,7 @@
 
   <link rel="shortcut icon" href="../img/bosch2.ico" type="image/x-icon">
 
-  <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+  <!-- <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script> -->
 
   <title>Processos</title>
 </head>
@@ -81,24 +81,38 @@
   <div class="text-center">
     <h1>Lista de Aprovados</h1>
     <h5>Processo Seletivo</h5> <!-- indicar atraves de ejs qual é o processo  -->
-    <div id="cam" >
-      <video id="webcam" autoplay playsinline ></video>
-      <canvas id="canvas" class="d-none"></canvas>
-      <audio id="snapSound" src="../audio/shutter.wav" preload="auto"></audio>
-      <button id="escondecam">print</button>
-    </div>
+  </div>
+  <div class="container sticky-top text-center">
+    <div id="cam" class="row row-cols-1">
+      <div class="col">
+        <video id="webcam" autoplay playsinline ></video>
+        <canvas id="canvas" class="d-none"></canvas>
+        <audio id="snapSound" src="../audio/shutter.wav" preload="auto"></audio>
+      </div>
+      <div class="col">
+        <button class="btn btn-warning col-4 col-md-3" id="escondecam">Esconder Camera</button>
+        <button class="btn btn-warning col-4 col-md-3" id="invertecam">Inverter Camera</button>
+      </div>
 
+
+    </div>
+  </div>
+  <div class="mx-auto table-responsive scroltable">
     <table class="table">
       <tr>
         <th scope="col" class="strongbg text-center">Id</th>
         <th scope="col" class="strongbg text-center">Nome</th>
         <th scope="col" class="strongbg text-center">Nota</th>
-        <th scope="col" class="strongbg text-center">Questões: <input class="col-1" type="number" id="questoes"> <input class="btn btn-warning py-0" type="button" id="setgab" value="Gabarito"></th>
-        <!-- <th scope="col" class="strongbg text-center">Nota 2</th>
+        <th scope="col" class="strongbg text-center">
+          Questões:
+          <input class="col-12 col-sm-6 col-md-2" type="number" id="questoes">
+          <input class="btn btn-warning py-0" type="button" id="setgab" value="Gabarito">
+        </th>
+      <!-- <th scope="col" class="strongbg text-center">Nota 2</th>
         <th scope="col" class="strongbg text-center">Nota 3</th>
         <th scope="col" class="strongbg text-center">Nota 4</th> -->
       </tr>
-    <% for( let i=0; i < candidatos.length; i++ ) { %>
+      <% for( let i=0; i < candidatos.length; i++ ) { %>
         <tr>
           <td class="lightbg text-center"><%= candidatos[i].IDCandidato %></td>
           <td class="lightbg text-center"><%= candidatos[i].Nome %></td>
@@ -108,17 +122,19 @@
           <td class="lightbg text-center">
             <!-- <%= candidatos[i].Nota1 %> -->
             <form id="correct" method="post" action="/Corrigir/<%= candidatos[i].IDCandidato %>/1" enctype="multipart/form-data">
-              <input type="file" id="prova" name="prova">
-              <input type="submit" value="enviar">
-              <button type="button" class="print" value="<%= candidatos[i].IDCandidato %>">print</button>
+              <label for="prova" class="btn btn-warning">Upload Imagem</label>
+              <input type="file" id="prova" name="prova" class="d-none">
+              <button type="button" class="print btn btn-warning" value="<%= candidatos[i].IDCandidato %>">Print</button>
+              <input type="submit" value="Enviar" class="btn btn-success">
             </form>
-          </td>
-        </tr>
+        </td>
+      </tr>
       <% } %>
     </table>
   </div>
+    
 
-
+  <script src="../js/webcam-easy.js" defer></script>
   <script src="../js/webcam.js" defer></script>
   <script src="../js/efeitos.js" defer></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>

@@ -6,13 +6,11 @@ $(' #correct ').on('submit', async (e) => {
 
     if ($(e.target).has(" #print ").length){
         formData.set('prova',
-                      await (await fetch($(e.target).children(" #print ").attr('src'))).blob(),
+                      await (await fetch($(e.target).children(' #boxbtn ').children(' #print ').attr('src'))).blob(),
                       Date.now()+".jpeg")
     }
 
     var Gabarito = $(' #FormGab ').serializeArray()
-
-
     var gabarito = {};
 
     for (var questao of Gabarito) {
@@ -70,9 +68,7 @@ $(' #setgab ').on('click', (e) => {
     $(' #modalGabarito ').modal('show');
 });
 
-$(' #escondecam ').on('click', (e) => {
-    var webcam = $(' #webcam ')
-    if (webcam.hasClass('d-none'))
-        webcam.removeClass('d-none')
-    else webcam.addClass('d-none')
+$(' #prova ').on('change', (e) => {
+    var fileName = $(e.target).val();
+    $(e.target).parent().children('label').html(fileName);
 })

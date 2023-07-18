@@ -9,8 +9,6 @@ const webcam = new Webcam(
   snapSoundElement
 );
 
-webcam.flip();
-
 webcam
   .start()
   .then((result) => {
@@ -19,51 +17,6 @@ webcam
   .catch((err) => {
     console.log(err);
   });
-
-
-
-
-
-// function saveasimg() {
-//   canvasElement.toBlob((blob) => {
-//     let file = new File([blob], "fileName.jpg", { type: "image/jpeg" });
-    
-//     var reader = new FileReader();
-    
-//     reader.onload = function (e) {
-//       var image = document.createElement("img");
-      
-//       var divimg = document.getElementById("cam");
-      
-//       image.src = e.target.result;
-//       divimg.appendChild(image);
-//     };
-//     // you have to declare the file loading
-//     reader.readAsDataURL(file);
-    
-//     console.log(file);
-//   }, "image/jpeg");
-// }
-// function saveasimg() {
-
-//   canvasElement.toBlob((blob) => {
-//     let file = new File([blob], "fileName.jpg", { type: "image/jpeg" });
-//     var reader = new FileReader();
-    
-//     reader.onload = function (e) {
-//       var image = document.createElement("img");
-      
-//       var divimg = document.getElementById("cam");
-      
-//       image.src = e.target.result;
-//       divimg.appendChild(image);
-//     };
-//     // you have to declare the file loading
-//     reader.readAsDataURL(file);
-    
-//     console.log(file);
-//   }, "image/jpeg");
-// }
 
 
 $(' .print ').on( 'click', (event) => {
@@ -79,7 +32,10 @@ $(' .print ').on( 'click', (event) => {
       var elemento = $(event.target).parent();
       var image;
       
-      if (!elemento.has(' #print ').length){
+      if (!elemento.has(' #boxbtn ').length){
+        var div = document.createElement("button");
+        div.id = 'boxbtn'
+        div.classList.add('border-0','strongbg')
 
         var closebtn = document.createElement("button");
         closebtn.value = '&times;'
@@ -87,8 +43,9 @@ $(' .print ').on( 'click', (event) => {
         closebtn.id = 'rmvimg'
         closebtn.classList.add('btn-close')
         closebtn.onclick = () => {
-          closebtn.parentElement.getElementsByTagName('IMG')[0].remove()
-          closebtn.remove()
+          closebtn.parentElement.remove()
+          // closebtn.parentElement.getElementsByTagName('IMG')[0].remove()
+          // closebtn.remove()
         }
 
         image = document.createElement("img");
@@ -96,12 +53,14 @@ $(' .print ').on( 'click', (event) => {
         image.src = e.target.result;
         image.width = "100";
 
-        elemento.append(closebtn);
-        elemento.append(image);
+        div.append(image);
+        div.append(closebtn);
+
+        elemento.append(div);
         return;
       }
       
-      elemento.children(' #print ').attr('src', e.target.result);
+      elemento.children(' #boxbtn ').children(' #print ').attr('src', e.target.result);
       return;
     };
     
@@ -109,4 +68,16 @@ $(' .print ').on( 'click', (event) => {
     // console.log(file);
   }, "image/jpeg");
 
+})
+
+$(' #escondecam ').on('click', (e) => {
+  var telawebcam = $(' #webcam ')
+  if (telawebcam.hasClass('d-none'))
+    telawebcam.removeClass('d-none')
+  else telawebcam.addClass('d-none')
+})
+
+$(' #invertecam ').on('click', (e) => {
+  webcam.flip();
+  return;
 })
