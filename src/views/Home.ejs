@@ -125,13 +125,14 @@
               <h3 class="text-center mx-auto">Esqueci Minha Senha</h3>
 
               <div class="hide alerta" id="error-update">
-                <span>Credenciais Incorretas</span>
+                <spanpremium>Credenciais Incorretas, verifique os dados!<br>
+                      Senha: 5 à 12 caracteres minúsculos, maiúsculos e numéricos&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</spanpremium>
                 <button type="button" id="alertabutton">&times;</button>
               </div>
 
               <form action="/ChangePwd" method="post" id="change-login">
 
-                <div class="col-6  mx-auto">
+                <div class="col-6 mt-3 mx-auto">
                   <label for="edv2" class="form-label text-center">
                     <h5>EDV Cadastrado do Colaborador</h5>
                   </label>
@@ -149,14 +150,20 @@
                   <label for="newsenha" class="form-label text-center">
                     <h5>Nova Senha</h5>
                   </label>
+                  <div class="senhasDesign">
                   <input class="form-control mx-auto fieldre" type="password" id="newsenha" name="newsenha">
+                  <i class="bi bi-eye" id="eye"></i>
+                  </div>
                 </div>
 
                 <div class="col-6 mt-5 mx-auto">
                   <label for="confirmnewsenha" class="form-label text-center">
                     <h5>Confirmação da Nova Senha</h5>
                   </label>
+                  <div class="senhasDesign">
                   <input class="form-control mx-auto fieldre" type="password" id="confirmnewsenha" name="confirmnewsenha">
+                  <i class="bi bi-eye" id="eyetwo"></i>
+                  </div>
                 </div>
 
                 <div class="hide alerta-bom mt-2" id="success-update">

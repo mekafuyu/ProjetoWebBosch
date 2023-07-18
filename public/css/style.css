@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
+
+/* características gerais */
+
 *{
     margin: 0;
     padding: 0;
@@ -15,6 +18,9 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
+/* AVISOS */
+
 .hide{
     opacity: 0 !important;
     transition: 200ms;
@@ -110,6 +116,8 @@ span4{
     font-weight: bold;
 }
 
+/* navbar */
+
 .detalhe {
     position: fixed;
     background: url(../img/rainbow.svg);
@@ -186,10 +194,6 @@ span4{
 }
 
 /* ------------- */
-
-
-
-
 
 .text-center h1{
     font-family: 'Roboto', sans-serif;
@@ -276,10 +280,25 @@ span4{
 .bi-eye-slash{
     position: absolute;
     cursor: pointer;
-
+    color: #000000;
     top: 51%;
     right: 27%;
+}
+
+#eye{
+    position: absolute;
+    cursor: pointer;
     color: #000000;
+    top: 59.7%;
+    right: 26%;
+}
+
+#eyetwo{
+    position: absolute;
+    cursor: pointer;
+    color: #000000;
+    top: 79.5%;
+    right: 26%;
 }
 
 .forgot a {
@@ -378,12 +397,147 @@ footer{
         height: 200px;
     }
 
+    #eye{
+        top: 60%;
+        right: 26%;
+    }
+    
+    #eyetwo{
+
+        top: 79.5%;
+        right: 26%;
+    }
+
 }
 
 @media screen and (max-width: 426px){
     #footerContent{
         grid-template-columns: repeat(1,1fr);
         padding: 3rem 2rem;
+    }
+
+    #eye{
+        top: 60%;
+        right: 26%;
+    }
+    
+    #eyetwo{
+
+        top: 79.5%;
+        right: 26%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .detalhe {
+        display: none;
+    }
+
+    .bi-eye{
+        top: 52%;
+        right: 27%;
+    }
+
+    .bi-eye-slash{
+        top: 52%;
+        right: 27%;
+    }
+
+    #eye{
+        top: 62.2%;
+        right: 26%;
+    }
+    
+    #eyetwo{
+
+        top: 81%;
+        right: 26%;
+    }
+}
+
+@media screen and (max-width: 393px){
+    .detalhe {
+        display: none;
+    }
+
+    .bi-eye{
+        top: 50%;
+        right: 27%;
+    }
+
+    .bi-eye-slash{
+        top: 50%;
+        right: 27%;
+    }
+
+    #eye{
+        top: 60%;
+        right: 26%;
+    }
+    
+    #eyetwo{
+
+        top: 79.5%;
+        right: 26%;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .detalhe {
+        display: none;
+    }
+
+    .bi-eye{
+        top: 50%;
+        right: 27%;
+    }
+
+    .bi-eye-slash{
+        top: 50%;
+        right: 27%;
+    }
+
+    #eye{
+        top: 62.5%;
+        right: 26%;
+    }
+    
+    #eyetwo{
+
+        top: 80.5%;
+        right: 26%;
+    }
+}
+
+@media screen and (max-width: 280px){
+
+    .bi-eye{
+        top: 54%;
+        right: 27%;
+    }
+
+    .bi-eye-slash{
+        top: 54%;
+        right: 27%;
+    }
+
+    #eye{
+        top: 64%;
+        right: 26%;
+    }
+    
+    #eyetwo{
+
+        top: 82%;
+        right: 26%;
+    }
+
+    .detalhe {
+        display: none;
+    }
+
+    html{ 
+        display: flex  ;
     }
 }
 

@@ -7,7 +7,7 @@ module.exports = {
         const dados = req.body
         const cpf = dados.Cpf
         dados.edv2 = Number(dados.edv2)
-        console.log(dados.edv2)
+        
         if (isNaN(dados.edv2)) {
             res.status(401).send({ error: 'Nulo' })
             return
