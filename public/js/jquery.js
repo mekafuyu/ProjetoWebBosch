@@ -1,4 +1,4 @@
-$(' #entrar ').on('click', (e) => {
+$(' #Entrar ').on('click', (e) => {
     
     var edv = $("#edv").val();
     var senha = $("#senha").val();

@@ -23,6 +23,23 @@ module.exports = {
             const password = dados.senha;
             const cpf = dados.cpf;
 
+            if (isNaN(dados.edv || cpf)){
+                res.status(401).send({error: 'Cadastro inválido'})
+                return
+            }
+
+            const newEDV = await colaborador.findAll({
+                raw: true,
+                attributes: ['EDV','Senha', 'CPF'],
+                where: {EDV: dados.edv}
+            })
+            
+            if (newEDV.length > 0){
+                res.status(401).send({error : 'EDVs repetidos são inválidos'})
+                return
+            }
+            
+
             if (await valid.cpfWithoutLetters(cpf)){
                 res.status(401).send({error : 'CPF inválido'})
                 return

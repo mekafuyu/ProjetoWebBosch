@@ -1,4 +1,4 @@
-$(' #addcol ').on('click', (e) => {
+$(' #atualizar ').on('click', (e) => {
     
     var edv = $("#edv2").val();
     var senha = $("#newsenha").val();
