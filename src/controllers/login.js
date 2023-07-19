@@ -40,7 +40,6 @@ module.exports = {
     async loginCol(req, res) {
         const dados = req.body;
         dados.edv = Number(dados.edv)
-        // console.log(dados)
 
         if (isNaN(dados.edv)) {
             res.status(401).send({ error: 'Login invalido' })

@@ -8,11 +8,13 @@ const cadastro = require('./src/controllers/cadastro');
 const home = require('./src/controllers/home');
 const corrigir =  require('./src/controllers/corrigir');
 const repassword = require('./src/controllers/repassword');
+const apagar = require('./src/controllers/apagar')
 
 
 routes
     .get('/', home.getHome).post('/',home.getHome)
     .post('/ChangePwd', repassword.changepwd)
+    .post('/HomeCol', apagar.apagatudo)
     
     .post('/LoginCol', login.loginCol).get('/HomeCriar', home.getHomeCriar).get('/Logout', login.logout)
     .get('/Cand/:IDCand', home.getHomeCand).post('/Cand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
