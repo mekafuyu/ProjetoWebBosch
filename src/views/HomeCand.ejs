@@ -63,17 +63,17 @@
     <table class="table">
       <tr>
         <th scope="col" class="strongbg text-center">Id</th>
-        <th scope="col" class="strongbg text-center">Nota1</th>
-        <th scope="col" class="strongbg text-center">Nota2</th>
-        <th scope="col" class="strongbg text-center">Nota3</th>
-        <th scope="col" class="strongbg text-center">Nota4</th>
+        <th scope="col" class="strongbg text-center">Nota 1</th>
+        <th scope="col" class="strongbg text-center">Nota 2</th>
+        <th scope="col" class="strongbg text-center">Nota 3</th>
+        <th scope="col" class="strongbg text-center">Nota 4</th>
       </tr>
       <tr>
         <td class="lightbg text-center"><%= candidatos.IDCandidato %></td>
-        <td class="lightbg text-center"><%= candidatos.Nota1 %></td>
-        <td class="lightbg text-center"><%= candidatos.Nota2 %></td>
-        <td class="lightbg text-center"><%= candidatos.Nota3 %></td>
-        <td class="lightbg text-center"><%= candidatos.Nota4 %></td>
+        <td class="lightbg text-center"><%= candidatos.Nota1 > 0 ? candidatos.Nota1 > 80 ? "Passou" : "Não Passou" : "Não corrigido"%></td>
+        <td class="lightbg text-center"><%= candidatos.Nota2 > 0 ? candidatos.Nota2 > 80 ? "Passou" : "Não Passou" : "Não corrigido"%></td>
+        <td class="lightbg text-center"><%= candidatos.Nota3 > 0 ? candidatos.Nota3 > 80 ? "Passou" : "Não Passou" : "Não corrigido"%></td>
+        <td class="lightbg text-center"><%= candidatos.Nota4 > 0 ? candidatos.Nota4 > 80 ? "Passou" : "Não Passou" : "Não corrigido"%></td>
       </tr>
     </table>
   </div>

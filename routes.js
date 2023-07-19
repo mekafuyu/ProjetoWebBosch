@@ -3,6 +3,7 @@ const config = require('./src/config/multer');
 
 const express = require('express');
 const routes = express.Router();
+
 const login = require('./src/controllers/login')
 const cadastro = require('./src/controllers/cadastro');
 const home = require('./src/controllers/home');

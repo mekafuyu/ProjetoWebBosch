@@ -4,12 +4,11 @@ const processo = require('../model/processo')
 const candidato = require('../model/candidato')
 const session = require('express-session')
 
-
 module.exports = {
-
     async getHome(req, res) {
         if (req.session.edv){
             let processos;
+
             if (req.body.search){
                 processos = await processo.findAll({
                     raw: true,
@@ -22,25 +21,27 @@ module.exports = {
                     attributes: ['IDProcesso','Nome', 'Situacao']
                 });
             }
-            // console.log(processos)
+
             res.render('HomeCol', { processos })
+
         } else res.render('Home')
     },
 
     async getHomeCriar(req, res) {
         if (req.session.edv)
-        {
             res.render('HomeCriar')
-        } else res.redirect('/')
+        else res.redirect('/')
     },
 
     async postHomeCol(req, res) {
         const si = req.body.Situacao;
+
         const processos = await processo.findAll({
             raw: true,
             attributes: ['IDProcesso', 'Nome', 'Etapa', 'Situacao'],
             where: { Situacao: si }
         });
+
         res.render('HomeCol', {processos})
     },
 
@@ -48,6 +49,7 @@ module.exports = {
     async getHomeCand(req, res) {
         let candparam = req.params.IDCand;
         let candbody = req.body.IDCandidato;
+
         if(!candparam || candbody)
             return res.redirect('/Cand/'+ candbody)
 
@@ -64,20 +66,24 @@ module.exports = {
 
     async postHomeCand(req, res) {
         const id = req.params.IDCandidato;
+
         const processos = await processo.findAll({
             raw: true,
             attributes: ['IDProcesso', 'Etapa', 'Situacao'],
             where: { IDprocesso: id }
         });
+
         const candidatos = await candidato.findByPk(id, {
             raw: true,
             attributes: ['IDCandidato', 'Nome', 'Nota1', 'Nota2', 'Nota3', 'Nota4']
         });
+
         res.render('HomeCand', {processos, candidatos})
     },
 
     async viewProc(req, res) {
         const id = req.params.IDProcesso;
+        
         const candidatos = await candidato.findAll({
             raw: true,
             attributes: ['IDCandidato', 'Nome', 'Nota1', 'Nota2', 'Nota3', 'Nota4', 'IDProcesso'],

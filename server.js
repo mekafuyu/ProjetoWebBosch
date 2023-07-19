@@ -8,15 +8,14 @@ const candidato = require('./src/model/candidato')
 const processo = require('./src/model/processo')
 require('dotenv').config()
 
-
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-//arquivos estáticos
+// arquivos estáticos
 app.use(express.static('public'));
 
-//sessões
+// sessões
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(sessions({
     secret: process.env.SESSION_SECRET,
@@ -28,12 +27,13 @@ app.use(sessions({
 // cookie parser middleware
 app.use(cookieParser());
 
-//ejs
+// ejs
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use(routes);
 
+// config admin default
 app.listen(process.env.APP_PORT, async () => {
 
     await colaborador.sync();
@@ -49,4 +49,4 @@ app.listen(process.env.APP_PORT, async () => {
     };
 
     console.log(`\nhttp://localhost:${process.env.APP_PORT}/\n`)
-});
+});                                 

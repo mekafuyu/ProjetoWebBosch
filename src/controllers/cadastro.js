@@ -17,7 +17,6 @@ module.exports = {
     },
 
     async colaboradorInsert(req, res) {
-
         if (req.session.edv) {
             const dados = req.body;
             const password = dados.senha;

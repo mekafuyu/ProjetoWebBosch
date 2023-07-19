@@ -41,7 +41,6 @@ module.exports = {
 
             let nota = +(acertos/dados.questoes * 100).toFixed(2);
 
-            
             candidato.update(
                 { Nota1: nota },
                 { where: {
@@ -54,10 +53,8 @@ module.exports = {
     },
     
     async getCorrect(req, res){
-        res.render('Corrigir')
-    },
-
-    async setNota(req, res){
-        
+        if (req.session.edv) 
+            res.render('Corrigir');
+        res.redirect('/');
     }
 }

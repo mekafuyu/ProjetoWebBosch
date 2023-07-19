@@ -14,43 +14,39 @@ try:
 
     # Imagem passada pelo usuário
     IMAGEM = sys.argv[1]
-    # Quantidade de questões
+
     QUANTQUESTOES = int(sys.argv[2])
 
-    # Trata a imagem
-    img = Image.open(IMAGEM)
+    # IMAGEM = '../../public/img/exams/ofc7.jpeg'
+    img = imread(IMAGEM, as_gray=True)
+
+    # Threshold idela para as imagens
+    threshold = int((filters.threshold_otsu(img))*255)
+
+    # Abrir e cortar bordas da imagem
+    img = Image.open(IMAGEM).convert('L').filter(ImageFilter.BoxBlur(10))
     enhancer = ImageEnhance.Brightness(img)
     factor = 1.5
     img = enhancer.enhance(factor)
-    width, height = img.size
 
-    # Corta a imagem
+    width, height = img.size
     if height > width:
         img = img.crop(( width/12, height/12, width*11/12, height*11/12 ))
     else:
         deslocar = (width - height*3/4)/2
         img = img.crop((deslocar, height/12, width-deslocar, height*11/12))
-
-    # Salva para gerar o Threshold
-    img.save(IMAGEM)
-
-    # Borra imagem e pega novas proporções
-    img = img.convert('L').filter(ImageFilter.BoxBlur(10))
-    width, height = img.size
-    
-    # Threshold ideal para as imagens
-    imgthresh = imread(IMAGEM, as_gray=True)
-    threshold = int((filters.threshold_otsu(imgthresh))*255-20)
-
-    # Teste de resultado
     img.save(IMRPATH+"teste2.png")
 
-    # Corte quantidade de questões
+    width, height = img.size
+
     alturaquestao = height/7
     meioquestoes = (alturaquestao*QUANTQUESTOES)/2
+
     img = img.crop((0, height/2-meioquestoes, width, height/2+meioquestoes))
     img.save(IMRPATH+"teste3.png")
     width, height = img.size
+
+
 
     # Abrir imagem como um array de pretos e brancos
     im_gray = np.array(img)
@@ -61,7 +57,7 @@ try:
     tolerancia = int( metrica * 0.025 )
     pontos = []
 
-    # Função para comparar proximidade dos pontos mais tarde
+    # # Função para comparar proximidade dos pontos mais tarde
     def isPointNear(point, newpoints):
         for newpoint in newpoints:
             distancia = int(math.sqrt((point[0]-newpoint[0])**2 + (point[1]-newpoint[1])**2))
@@ -142,6 +138,7 @@ try:
     with open(JSONPATH + '/results.txt', 'w') as outfile:
             outfile.write(str(newpontos))
 
+            
     print(json_object_result)
 except Exception as e:
     print("erro:", str(e))
