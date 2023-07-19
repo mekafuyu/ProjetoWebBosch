@@ -27,7 +27,7 @@
 
 <body>
   <header>
-    <div class="detalhe"></div>
+    
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow mb-5">
       <div class="container-fluid">
         <img src="../img/bosch.ico" alt="IconeBosch" width="165px" height="90px" id="IconeBosch" class="d-none d-md-flex">
@@ -86,7 +86,7 @@
     <div id="cam" class="row row-cols-1">
       <div class="col">
         <video id="webcam" autoplay playsinline ></video>
-        <canvas id="canvas" class="d-none"></canvas>
+        <canvas id="canvas" class="d-none" style="transform: rotate(90deg);"></canvas>
         <audio id="snapSound" src="../audio/shutter.wav" preload="auto"></audio>
       </div>
       <div class="col">
@@ -122,8 +122,8 @@
           <td class="lightbg text-center">
             <!-- <%= candidatos[i].Nota1 %> -->
             <form id="correct" method="post" action="/Corrigir/<%= candidatos[i].IDCandidato %>/1" enctype="multipart/form-data">
-              <label for="prova" class="btn btn-warning">Upload Imagem</label>
-              <input type="file" id="prova" name="prova" class="d-none">
+              <label for="<%='prova'+candidatos[i].IDCandidato%>" class="btn btn-warning">Upload Imagem</label>
+              <input type="file" id="<%='prova'+candidatos[i].IDCandidato%>" name="prova" class="d-none prova">
               <button type="button" class="print btn btn-warning" value="<%= candidatos[i].IDCandidato %>">Print</button>
               <input type="submit" value="Enviar" class="btn btn-success">
             </form>

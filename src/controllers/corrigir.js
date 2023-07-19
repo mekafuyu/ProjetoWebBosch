@@ -19,7 +19,11 @@ module.exports = {
                                         dados.questoes]);
         
         process.stdout.on('data', (data) => {
-            respostas = JSON.parse(data.toString())
+            try {
+                respostas = JSON.parse(data.toString())
+            } catch (error) {
+                return res.send({error : data.toString()})
+            }
 
             let acertos = 0;
             for (let i = 1; i <= dados.questoes; i++) {

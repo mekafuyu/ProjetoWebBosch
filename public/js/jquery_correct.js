@@ -68,7 +68,7 @@ $(' #setgab ').on('click', (e) => {
     $(' #modalGabarito ').modal('show');
 });
 
-$(' #prova ').on('change', (e) => {
+$(' .prova ').on('change', (e) => {
     var fileName = $(e.target).val();
     $(e.target).parent().children('label').html(fileName);
 })

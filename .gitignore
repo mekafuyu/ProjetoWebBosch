@@ -135,3 +135,7 @@ dist
 
 # VSCode Customization Settings for preject
 .vscode/
+
+# Results
+src/scripts/*.json
+src/scripts/*.txt
