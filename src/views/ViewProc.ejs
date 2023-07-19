@@ -85,12 +85,12 @@
   <div class="container sticky-top text-center">
     <div id="cam" class="row row-cols-1">
       <div class="col">
-        <video id="webcam" autoplay playsinline ></video>
+        <video id="webcam" class="d-none" autoplay playsinline ></video>
         <canvas id="canvas" class="d-none" style="transform: rotate(90deg);"></canvas>
         <audio id="snapSound" src="../audio/shutter.wav" preload="auto"></audio>
       </div>
       <div class="col">
-        <button class="btn btn-warning col-4 col-md-3" id="escondecam">Esconder Camera</button>
+        <button class="btn btn-warning col-4 col-md-3" id="escondecam">Esconder/Mostrar Camera</button>
         <button class="btn btn-warning col-4 col-md-3" id="invertecam">Inverter Camera</button>
       </div>
 
