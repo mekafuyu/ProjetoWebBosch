@@ -36,9 +36,9 @@ app.use(routes);
 // config admin default
 app.listen(process.env.APP_PORT, async () => {
 
+    await processo.sync();
     await colaborador.sync();
     await candidato.sync();
-    await processo.sync();
 
     if(await colaborador.count() < 1){
     await colaborador.create({
