@@ -14,10 +14,12 @@ $(' #Cadastrar ').on('click', (e) => {
         },
         success: (data) => {
             $('#addcol').modal('hide')
+            $(' #success-create ').removeClass('hide')
             $(' #error-create ').addClass('hide');
         },
         error: (data) => {
             $(' #error-create ').removeClass('hide')
+            $(' #success-create ').addClass('hide');
             
         }
     });
@@ -25,6 +27,13 @@ $(' #Cadastrar ').on('click', (e) => {
 
 $(' .alerta button ').on('click', (e) => {
     $(' #error-create ').addClass('hide');
+});
+$(' .alerta-bom button ').on('click', (e) => {
+    $(' #success-create ').addClass('hide');
+});
+
+$(' .fieldre ').on('focus', (e) => {
+    $(' #error-create ').addClass('hide')
 });
 
 
