@@ -1,7 +1,7 @@
 $(' #apagar ').on('click', (e) => {
     
     var edv = $("#edvtrash").val();
-    var processo = $(e.target).parent().attr('id');
+    var processo = $(e.target).parent().parent().attr('id');
     console.log(processo)
    
     $.ajax({
@@ -13,6 +13,7 @@ $(' #apagar ').on('click', (e) => {
         },
         success: (data) => {
             $(' #success-apagar ').removeClass('hide')
+            location.reload();
         },
         error: (data) => {
             $(' #success-apagar ').addClass('hide');
