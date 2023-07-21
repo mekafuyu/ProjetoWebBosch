@@ -10,12 +10,14 @@ const home = require('./src/controllers/home');
 const corrigir =  require('./src/controllers/corrigir');
 const repassword = require('./src/controllers/repassword');
 const apagar = require('./src/controllers/apagar')
+const download = require('./src/controllers/download')
 
 
 routes
     .get('/', home.getHome).post('/',home.getHome)
     .post('/ChangePwd', repassword.changepwd)
     .post('/HomeCol', apagar.apagatudo)
+    .post('/Download/:idprocesso', download.downloadprocesso)
     
     .post('/LoginCol', login.loginCol).get('/HomeCriar', home.getHomeCriar).get('/Logout', login.logout)
     .get('/Cand/:IDCand', home.getHomeCand).post('/Cand', home.getHomeCand).post('/HomeCand', home.postHomeCand)
